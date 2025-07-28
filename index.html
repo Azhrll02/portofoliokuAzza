@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+// Load profile image
+function loadProfileImage() {
+    const img = documents.getElementById('profile-pic');
+   
+    // Pastikan nama file adalah 'fotoku.png' dan berada di folder yang sama dengan file HTML Anda
+    img.src = './fotoku.png';
+}
+
+// Panggil fungsi untuk memuat gambar setelah dokuments HTML selesai dimuat
+documents.addEventListener('DOMContentLoaded', loadProfileImage);
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +15,6 @@
     <title>Muhammad Azharul Mangali - Quality Control Engineer</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-        /* Gaya CSS Anda tetap di sini, tidak berubah */
         * {
             margin: 0;
             padding: 0;
@@ -384,11 +392,11 @@
     
     <div class="navbar">
         <nav>
-            <a href="#home">Beranda</a>
-            <a href="#about">Tentang</a>
-            <a href="#skills">Keahlian</a>
-            <a href="#experience">Pengalaman</a>
-            <a href="#contact">Kontak</a>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#contact">Contact</a>
         </nav>
     </div>
 
@@ -396,34 +404,34 @@
         <div id="canvas-container"></div>
         <div class="hero-content">
             <h1>Muhammad Azharul Mangali</h1>
-            <p class="subtitle">Insinyur Kontrol Kualitas & Spesialis Elektronika</p>
-            <p>Profesional berpengalaman dalam teknik elektronika, MEP, dan kontrol kualitas dengan komitmen tinggi untuk inovasi dan keunggulan.</p>
+            <p class="subtitle">Quality Control Engineer & Electronic Specialist</p>
+            <p>Profesional berpengalaman dalam teknik elektronika, MEP, dan kontrol kualitas dengan komitmen tinggi untuk inovasi dan excellence.</p>
             <br>
-            <a href="#about" class="cta-button">Jelajahi Pekerjaan Saya</a>
+            <a href="#about" class="cta-button">Explore My Work</a>
         </div>
     </section>
 
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">Tentang Saya</h2>
+            <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="profile-image">
-                    <img id="profile-pic" alt="Muhammad Azharul Mangali" />
+                    <img id="profile-pic"  src="./fotoku.png" alt="Muhammad Azharul Mangali" />
                 </div>
                 <div class="about-text">
                     <p>Saya seorang profesional di bidang elektronika, teknik, MEP, dan kontrol kualitas mutu dengan pengalaman sebagai Supervisor Elektronik, Engineering, dan Quality Control Engineering. Dengan gelar Diploma Teknik Elektronika dan kemampuan analitis yang kuat, saya berkomitmen untuk terus meningkatkan pengetahuan dan memberikan kontribusi signifikan di bidang elektronika dan teknik.</p>
                     <div class="profile-stats">
                         <div class="stat-item">
                             <span class="stat-number">5+</span>
-                            <span class="stat-label">Tahun Pengalaman</span>
+                            <span class="stat-label">Years Experience</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">50+</span>
-                            <span class="stat-label">Proyek Selesai</span>
+                            <span class="stat-label">Projects Completed</span>
                         </div>
                         <div class="stat-item">
                             <span class="stat-number">3</span>
-                            <span class="stat-label">Sertifikasi</span>
+                            <span class="stat-label">Certifications</span>
                         </div>
                     </div>
                 </div>
@@ -433,29 +441,30 @@
 
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Keahlian & Keahlian</h2>
+            <h2 class="section-title">Skills & Expertise</h2>
             <div class="skills-grid">
                 <div class="skill-card">
-                    <h3><span class="skill-icon">⚡</span>Instalasi Listrik</h3>
+                    <h3><span class="skill-icon">⚡</span>Electrical Installation</h3>
                     <p>Instalasi listrik panel, pembacaan gambar teknik, dan sistem pengamanan listrik dengan pengalaman lebih dari 3 tahun.</p>
                 </div>
                 <div class="skill-card">
-                    <h3><span class="skill-icon">🎯</span>Kontrol Kualitas</h3>
+                    <h3><span class="skill-icon">🎯</span>Quality Control</h3>
                     <p>Membuat jadwal inspeksi, SOP pekerjaan lapangan, dan pengetesan instalasi dengan standar kualitas tinggi.</p>
                 </div>
                 <div class="skill-card">
-                    <h3><span class="skill-icon">📐</span>Desain CAD</h3>
+                    <h3><span class="skill-icon">📐</span>CAD Design</h3>
                     <p>Penggunaan perangkat lunak Eagle, Proteus, Fritzing, AutoCAD untuk desain dan implementasi sistem elektronik.</p>
                 </div>
                 <div class="skill-card">
-                    <h3><span class="skill-icon">👥</span>Kepemimpinan</h3>
+                    <h3><span class="skill-icon">👥</span>Leadership</h3>
                     <p>Mengkoordinasikan tim teknisi dan meningkatkan efisiensi operasional hingga 25% dengan kepemimpinan yang efektif.</p>
+                </div>
                 <div class="skill-card">
-                    <h3><span class="skill-icon">🔧</span>Pemecahan Masalah</h3>
+                    <h3><span class="skill-icon">🔧</span>Troubleshooting</h3>
                     <p>Kemampuan analisis masalah dan troubleshooting proyek konstruksi dengan solusi yang tepat dan cepat.</p>
                 </div>
                 <div class="skill-card">
-                    <h3><span class="skill-icon">📋</span>Manajemen Proyek</h3>
+                    <h3><span class="skill-icon">📋</span>Project Management</h3>
                     <p>Mengelola administrasi, koordinasi tim, dan laporan kemajuan dengan peningkatan efisiensi hingga 25%.</p>
                 </div>
             </div>
@@ -464,7 +473,7 @@
 
     <section id="experience" class="section">
         <div class="container">
-            <h2 class="section-title">Pengalaman Kerja</h2>
+            <h2 class="section-title">Work Experience</h2>
             <div class="experience-timeline">
                 <div class="timeline-item">
                     <h3>Quality Controller</h3>
@@ -490,22 +499,22 @@
 
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Hubungi Saya</h2>
+            <h2 class="section-title" style="color: white;">Get In Touch</h2>
             <div class="contact-grid">
                 <div class="contact-item">
                     <h3>📧 Email</h3>
                     <p>azharulmangali21@gmail.com</p>
                 </div>
                 <div class="contact-item">
-                    <h3>📱 Telepon</h3>
+                    <h3>📱 Phone</h3>
                     <p>082 225 139 075</p>
                 </div>
                 <div class="contact-item">
-                    <h3>📍 Lokasi</h3>
+                    <h3>📍 Location</h3>
                     <p>Tanjung Duren Utara, Jakarta Barat</p>
                 </div>
                 <div class="contact-item">
-                    <h3>🎓 Pendidikan</h3>
+                    <h3>🎓 Education</h3>
                     <p>D3 Teknik Elektro - Politeknik Negeri Cilacap</p>
                 </div>
             </div>
@@ -513,19 +522,6 @@
     </section>
 
     <script>
-        // Memuat gambar profil
-        function loadProfileImage() {
-            const img = document.getElementById('profile-pic');
-            // JALUR PENTING: Karena index.html dan fotoku.png berada di folder yang SAMA,
-            // cukup gunakan nama file saja.
-            img.src = 'fotoku.png'; 
-            
-            // Pastikan 'fotoku.png' memiliki huruf besar/kecil yang sama persis
-            // dengan nama file aktual di PC Anda (misalnya, 'Fotoku.png' atau 'fotoku.PNG').
-        }
-
-        document.addEventListener('DOMContentLoaded', loadProfileImage);
-
         // Three.js 3D Scene Setup
         let scene, camera, renderer, particles;
         let mouseX = 0, mouseY = 0;
@@ -537,7 +533,7 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-            // Membuat sistem partikel
+            // Create particle system
             const particleGeometry = new THREE.BufferGeometry();
             const particleCount = 1000;
             const positions = new Float32Array(particleCount * 3);
@@ -558,7 +554,7 @@
             particles = new THREE.Points(particleGeometry, particleMaterial);
             scene.add(particles);
 
-            // Membuat bentuk geometris yang berputar
+            // Create rotating geometric shapes
             const geometry = new THREE.BoxGeometry(2, 2, 2);
             const material = new THREE.MeshBasicMaterial({ 
                 color: 0x00f5ff, 
@@ -584,7 +580,7 @@
 
             camera.position.z = 30;
 
-            // Efek gerakan mouse
+            // Mouse movement effect
             document.addEventListener('mousemove', onDocumentMouseMove, false);
         }
 
@@ -596,16 +592,16 @@
         function animate() {
             requestAnimationFrame(animate);
 
-            // Memutar partikel
+            // Rotate particles
             particles.rotation.x += 0.001;
             particles.rotation.y += 0.002;
 
-            // Interaksi mouse
+            // Mouse interaction
             camera.position.x += (mouseX - camera.position.x) * 0.05;
             camera.position.y += (-mouseY - camera.position.y) * 0.05;
             camera.lookAt(scene.position);
 
-            // Memutar bentuk geometris
+            // Rotate geometric shapes
             scene.children.forEach((child, index) => {
                 if (child.geometry && child.geometry.type === 'BoxGeometry') {
                     child.rotation.x += 0.01 * (index + 1);
@@ -616,11 +612,11 @@
             renderer.render(scene, camera);
         }
 
-        // Inisialisasi Three.js 3D scene
+        // Initialize 3D scene
         init3D();
         animate();
 
-        // Pembuatan elemen mengambang
+        // Floating elements generation
         function createFloatingElements() {
             const container = document.querySelector('.floating-elements');
             for (let i = 0; i < 20; i++) {
@@ -636,7 +632,7 @@
 
         createFloatingElements();
 
-        // Smooth scrolling untuk navigasi
+        // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -648,7 +644,7 @@
             });
         });
 
-        // Efek transparan Navbar
+        // Navbar transparency effect
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 100) {
@@ -658,14 +654,14 @@
             }
         });
 
-        // Handler perubahan ukuran jendela
+        // Window resize handler
         window.addEventListener('resize', function() {
             camera.aspect = window.innerWidth / window.innerHeight;
             camera.updateProjectionMatrix();
             renderer.setSize(window.innerWidth, window.innerHeight);
         });
 
-        // Intersection Observer untuk animasi
+        // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -680,7 +676,7 @@
             });
         }, observerOptions);
 
-        // Amati elemen untuk animasi
+        // Observe elements for animation
         document.querySelectorAll('.skill-card, .timeline-item').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';

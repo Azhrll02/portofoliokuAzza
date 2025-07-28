@@ -449,19 +449,41 @@
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
         }
 
         .maps-header {
             padding: 1.5rem;
             background: rgba(255, 255, 255, 0.1);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .maps-header h3 {
             color: #74c0fc;
             font-size: 1.2rem;
             font-weight: 600;
-            text-align: center;
+        }
+
+        .open-maps-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .open-maps-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
         }
 
         .map-frame {
@@ -469,6 +491,133 @@
             height: 300px;
             border: none;
             display: block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .map-frame:hover {
+            opacity: 0.9;
+        }
+
+        .map-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(52, 152, 219, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .map-overlay:hover {
+            opacity: 1;
+        }
+
+        .map-overlay-text {
+            background: rgba(52, 152, 219, 0.9);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+            color: white;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            }
+            50% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+            }
+            100% {
+                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            }
+        }
+
+        /* WhatsApp Tooltip */
+        .whatsapp-float::before {
+            content: "Chat via WhatsApp";
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: #2c3e50;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .whatsapp-float:hover::before {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Contact Items Clickable Enhancement */
+        .contact-item {
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .contact-item.clickable::after {
+            content: "Click to contact";
+            position: absolute;
+            bottom: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            opacity: 0.7;
+            color: #74c0fc;
         }
 
         /* Responsive Design */
@@ -707,22 +856,39 @@
                 <div class="maps-container fade-in">
                     <div class="maps-header">
                         <h3>📍 Lokasi Saya</h3>
+                        <button class="open-maps-btn" onclick="openGoogleMaps()">
+                            🗺️ Buka di Google Maps
+                        </button>
                     </div>
                     <div id="map-loading" class="loading">
                         <div class="spinner"></div>
                     </div>
-                    <iframe id="location-map" 
-                            class="map-frame" 
-                            style="display: none;"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15865.542891738154!2d106.78392425!3d-6.1754871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f64c5e8866a9%3A0x3c891379e6c98a3b!2sTanjung%20Duren%20Utara%2C%20Grogol%20petamburan%2C%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sen!2sid!4v1709123456789!5m2!1sen!2sid"
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
+                    <div style="position: relative;">
+                        <iframe id="location-map" 
+                                class="map-frame" 
+                                style="display: none;"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15865.542891738154!2d106.78392425!3d-6.1754871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f64c5e8866a9%3A0x3c891379e6c98a3b!2sTanjung%20Duren%20Utara%2C%20Grogol%20petamburan%2C%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sen!2sid!4v1709123456789!5m2!1sen!2sid"
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade"
+                                onclick="openGoogleMaps()">
+                        </iframe>
+                        <div class="map-overlay" onclick="openGoogleMaps()">
+                            <div class="map-overlay-text">🗺️ Buka di Google Maps</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/6285258600345?text=Halo%20Muhammad%20Azharul%20Mangali,%20saya%20tertarik%20untuk%20berdiskusi%20tentang%20peluang%20kerjasama." 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer">
+        💬
+    </a>
 
     <script>
         // Load profile image
@@ -998,19 +1164,43 @@
 
         // Add contact form functionality placeholder
         function initContactForm() {
-            // This would be where you'd add contact form handling
-            // For now, we'll just add click handlers to contact items
+            // Add click handlers to contact items
             document.querySelectorAll('.contact-item').forEach(item => {
-                item.addEventListener('click', () => {
-                    const text = item.querySelector('p').textContent;
-                    if (text.includes('@')) {
+                const heading = item.querySelector('h3').textContent;
+                const text = item.querySelector('p').textContent;
+                
+                if (text.includes('@')) {
+                    item.classList.add('clickable');
+                    item.addEventListener('click', () => {
                         window.location.href = `mailto:${text}`;
-                    } else if (text.includes('+')) {
-                        window.location.href = `tel:${text.replace(/\s+/g, '')}`;
-                    }
-                });
+                    });
+                } else if (text.includes('+62') || heading.includes('Telepon')) {
+                    item.classList.add('clickable');
+                    item.addEventListener('click', () => {
+                        const phoneNumber = text.replace(/\s+/g, '').replace(/\+/g, '');
+                        window.location.href = `tel:+${phoneNumber}`;
+                    });
+                }
             });
         }
+
+        // Function to open Google Maps
+        function openGoogleMaps() {
+            const location = "Tanjung Duren Utara, Grogol Petamburan, Jakarta Barat, Indonesia";
+            const encodedLocation = encodeURIComponent(location);
+            const mapsUrl = `https://www.google.com/maps/search/${encodedLocation}`;
+            window.open(mapsUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        // Add click event to map iframe
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapFrame = document.getElementById('location-map');
+            if (mapFrame) {
+                mapFrame.addEventListener('load', function() {
+                    this.style.cursor = 'pointer';
+                });
+            }
+        });
 
         initContactForm();
     </script>

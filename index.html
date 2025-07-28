@@ -1,13 +1,4 @@
-// Load profile image
-function loadProfileImage() {
-    const img = documents.getElementById('profile-pic');
-   
-    // Pastikan nama file adalah 'fotoku.png' dan berada di folder yang sama dengan file HTML Anda
-    img.src = './fotoku.png';
-}
-
-// Panggil fungsi untuk memuat gambar setelah dokuments HTML selesai dimuat
-documents.addEventListener('DOMContentLoaded', loadProfileImage);
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -416,7 +407,7 @@ documents.addEventListener('DOMContentLoaded', loadProfileImage);
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
                 <div class="profile-image">
-                    <img id="profile-pic"  src="./fotoku.png" alt="Muhammad Azharul Mangali" />
+                    <img id="profile-pic" alt="Muhammad Azharul Mangali" />
                 </div>
                 <div class="about-text">
                     <p>Saya seorang profesional di bidang elektronika, teknik, MEP, dan kontrol kualitas mutu dengan pengalaman sebagai Supervisor Elektronik, Engineering, dan Quality Control Engineering. Dengan gelar Diploma Teknik Elektronika dan kemampuan analitis yang kuat, saya berkomitmen untuk terus meningkatkan pengetahuan dan memberikan kontribusi signifikan di bidang elektronika dan teknik.</p>
@@ -522,6 +513,21 @@ documents.addEventListener('DOMContentLoaded', loadProfileImage);
     </section>
 
     <script>
+        // Load profile image
+        function loadProfileImage() {
+            const img = document.getElementById('profile-pic'); // Corrected to 'document'
+            // Pastikan nama file adalah 'fotoku.png' dan berada di folder yang sama dengan file HTML Anda
+            // If 'fotoku.png' is in the same directory as this HTML file, use:
+            img.src = 'fotoku.png'; 
+            // If 'fotoku.png' is in a folder named 'Documents' one level UP from this HTML, use:
+            // img.src = '../Documents/fotoku.png';
+            // If 'fotoku.png' is in a subfolder named 'images' in the same directory, use:
+            // img.src = './images/fotoku.png';
+        }
+
+        // Panggil fungsi untuk memuat gambar setelah dokumen HTML selesai dimuat
+        document.addEventListener('DOMContentLoaded', loadProfileImage); // Corrected to 'document'
+
         // Three.js 3D Scene Setup
         let scene, camera, renderer, particles;
         let mouseX = 0, mouseY = 0;

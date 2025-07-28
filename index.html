@@ -83,6 +83,7 @@
             justify-content: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+            overflow: hidden;
         }
         
         #canvas-container {
@@ -398,8 +399,18 @@
 
         /* Contact Section */
         .contact-section {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-            color: white;
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+
+        .contact-section .section-title {
+            color: #2c3e50 !important;
+            font-weight: 700 !important;
+        }
+
+        .contact-section .section-subtitle {
+            color: #2c3e50 !important;
+            font-weight: 500 !important;
         }
 
         .contact-content {
@@ -417,29 +428,44 @@
         
         .contact-item {
             padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
+            background: white;
             border-radius: 15px;
-            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid #e9ecef;
             transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
         }
 
         .contact-item:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: #f8f9fa;
             transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
         .contact-item h3 {
             font-size: 1.2rem;
             margin-bottom: 1rem;
-            color: #74c0fc;
-            font-weight: 600;
+            color: #2c3e50 !important;
+            font-weight: 700 !important;
         }
 
         .contact-item p {
             font-size: 1rem;
-            opacity: 0.9;
+            color: #2c3e50 !important;
+            font-weight: 500 !important;
+        }
+
+        .contact-item.clickable::after {
+            content: "Click to contact";
+            position: absolute;
+            bottom: 0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            opacity: 0.7;
+            color: #3498db;
         }
 
         /* Maps Container */
@@ -448,21 +474,21 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid #e9ecef;
             position: relative;
         }
 
         .maps-header {
             padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .maps-header h3 {
-            color: #74c0fc;
+            color: #2c3e50;
             font-size: 1.2rem;
             font-weight: 600;
         }
@@ -591,35 +617,6 @@
             transform: translateY(0);
         }
 
-        /* Contact Items Clickable Enhancement */
-        .contact-item {
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .contact-item:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .contact-item.clickable::after {
-            content: "Click to contact";
-            position: absolute;
-            bottom: 0.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.7rem;
-            opacity: 0.7;
-            color: #74c0fc;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .navbar nav {
@@ -708,6 +705,30 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+
+        /* Futuristic Effects */
+        .holographic-text {
+            background: linear-gradient(45deg, #00f5ff, #ff00ff, #00ff00, #ffff00, #ff0080);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: holographic 3s ease-in-out infinite;
+        }
+
+        @keyframes holographic {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff, 0 0 15px #00f5ff, 0 0 20px #00f5ff;
+            animation: neonPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            from { text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff, 0 0 15px #00f5ff, 0 0 20px #00f5ff; }
+            to { text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff, 0 0 30px #00f5ff, 0 0 40px #00f5ff; }
         }
     </style>
 </head>
@@ -832,8 +853,8 @@
 
     <section id="contact" class="contact-section section">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Hubungi Saya</h2>
-            <p class="section-subtitle" style="color: #bdc3c7;">Mari berdiskusi tentang peluang kerjasama dan proyek yang menarik</p>
+            <h2 class="section-title">Hubungi Saya</h2>
+            <p class="section-subtitle">Mari berdiskusi tentang peluang kerjasama dan proyek yang menarik</p>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item fade-in">
@@ -903,91 +924,298 @@
 
         document.addEventListener('DOMContentLoaded', loadProfileImage);
 
-        // Three.js 3D Scene Setup
-        let scene, camera, renderer, particles;
+        // Enhanced 3D Scene with Futuristic Elements
+        let scene, camera, renderer, particles, particleSystem;
         let mouseX = 0, mouseY = 0;
+        let geometricObjects = [];
+        let time = 0;
 
         function init3D() {
             scene = new THREE.Scene();
             camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            renderer = new THREE.WebGLRenderer({ alpha: true });
+            renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setClearColor(0x000000, 0);
+            renderer.setPixelRatio(window.devicePixelRatio);
             document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-            // Create particle system
-            const particleGeometry = new THREE.BufferGeometry();
-            const particleCount = 1000;
-            const positions = new Float32Array(particleCount * 3);
-
-            for (let i = 0; i < particleCount * 3; i++) {
-                positions[i] = (Math.random() - 0.5) * 100;
-            }
-
-            particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-            const particleMaterial = new THREE.PointsMaterial({
-                color: 0xffffff,
-                size: 0.5,
-                transparent: true,
-                opacity: 0.6
-            });
-
-            particles = new THREE.Points(particleGeometry, particleMaterial);
-            scene.add(particles);
-
-            // Add floating geometric shapes
-            const geometry = new THREE.BoxGeometry(2, 2, 2);
-            const material = new THREE.MeshBasicMaterial({ 
-                color: 0xffffff, 
-                wireframe: true,
-                transparent: true,
-                opacity: 0.1
-            });
-
-            for (let i = 0; i < 5; i++) {
-                const cube = new THREE.Mesh(geometry, material);
-                cube.position.set(
-                    Math.random() * 20 - 10,
-                    Math.random() * 20 - 10,
-                    Math.random() * 20 - 10
-                );
-                cube.rotation.set(
-                    Math.random() * Math.PI,
-                    Math.random() * Math.PI,
-                    Math.random() * Math.PI
-                );
-                scene.add(cube);
-            }
-
-            camera.position.z = 30;
+            // Enhanced Particle System
+            createAdvancedParticleSystem();
+            
+            // Add Futuristic Geometric Objects
+            createFuturisticObjects();
+            
+            // Add Ambient and Point Lights
+            createLightingSystem();
+            
+            camera.position.z = 50;
             document.addEventListener('mousemove', onDocumentMouseMove, false);
         }
 
+        function createAdvancedParticleSystem() {
+            const particleCount = 2000;
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+            const sizes = new Float32Array(particleCount);
+            const velocities = new Float32Array(particleCount * 3);
+
+            for (let i = 0; i < particleCount; i++) {
+                const i3 = i * 3;
+                
+                // Positions
+                positions[i3] = (Math.random() - 0.5) * 200;
+                positions[i3 + 1] = (Math.random() - 0.5) * 200;
+                positions[i3 + 2] = (Math.random() - 0.5) * 200;
+                
+                // Colors - Futuristic cyan/blue palette
+                colors[i3] = Math.random() * 0.5 + 0.5; // Red
+                colors[i3 + 1] = Math.random() * 0.5 + 0.5; // Green
+                colors[i3 + 2] = 1.0; // Blue
+                
+                // Sizes
+                sizes[i] = Math.random() * 3 + 1;
+                
+                // Velocities
+                velocities[i3] = (Math.random() - 0.5) * 0.02;
+                velocities[i3 + 1] = (Math.random() - 0.5) * 0.02;
+                velocities[i3 + 2] = (Math.random() - 0.5) * 0.02;
+            }
+
+            const particleGeometry = new THREE.BufferGeometry();
+            particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            particleGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
+
+            const particleMaterial = new THREE.ShaderMaterial({
+                uniforms: {
+                    time: { value: 0 },
+                    pixelRatio: { value: window.devicePixelRatio }
+                },
+                vertexShader: `
+                    attribute float size;
+                    attribute vec3 color;
+                    varying vec3 vColor;
+                    uniform float time;
+                    
+                    void main() {
+                        vColor = color;
+                        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+                        
+                        // Add wave motion
+                        mvPosition.y += sin(time + position.x * 0.01) * 10.0;
+                        mvPosition.x += cos(time + position.z * 0.01) * 5.0;
+                        
+                        gl_PointSize = size * (300.0 / -mvPosition.z);
+                        gl_Position = projectionMatrix * mvPosition;
+                    }
+                `,
+                fragmentShader: `
+                    varying vec3 vColor;
+                    
+                    void main() {
+                        float distanceToCenter = distance(gl_PointCoord, vec2(0.5, 0.5));
+                        float strength = 1.0 - (distanceToCenter * 2.0);
+                        strength = max(strength, 0.0);
+                        
+                        vec3 finalColor = vColor * strength;
+                        float alpha = strength * 0.8;
+                        
+                        gl_FragColor = vec4(finalColor, alpha);
+                    }
+                `,
+                transparent: true,
+                blending: THREE.AdditiveBlending,
+                depthTest: false,
+                vertexColors: true
+            });
+
+            particleSystem = new THREE.Points(particleGeometry, particleMaterial);
+            scene.add(particleSystem);
+        }
+
+        function createFuturisticObjects() {
+            // Holographic Rings
+            for (let i = 0; i < 3; i++) {
+                const ringGeometry = new THREE.RingGeometry(15 + i * 10, 17 + i * 10, 32);
+                const ringMaterial = new THREE.MeshBasicMaterial({
+                    color: new THREE.Color().setHSL(0.6 + i * 0.1, 1, 0.5),
+                    transparent: true,
+                    opacity: 0.3,
+                    side: THREE.DoubleSide
+                });
+                const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+                ring.position.set(0, 0, -20 - i * 5);
+                ring.rotation.x = Math.PI / 2;
+                geometricObjects.push(ring);
+                scene.add(ring);
+            }
+
+            // Floating Crystals
+            for (let i = 0; i < 8; i++) {
+                const crystalGeometry = new THREE.OctahedronGeometry(3);
+                const crystalMaterial = new THREE.MeshPhongMaterial({
+                    color: new THREE.Color().setHSL(0.5 + i * 0.1, 0.8, 0.6),
+                    transparent: true,
+                    opacity: 0.7,
+                    shininess: 100
+                });
+                const crystal = new THREE.Mesh(crystalGeometry, crystalMaterial);
+                crystal.position.set(
+                    (Math.random() - 0.5) * 100,
+                    (Math.random() - 0.5) * 100,
+                    (Math.random() - 0.5) * 50
+                );
+                crystal.userData = {
+                    rotationSpeed: Math.random() * 0.02 + 0.01,
+                    floatSpeed: Math.random() * 0.01 + 0.005,
+                    originalY: crystal.position.y
+                };
+                geometricObjects.push(crystal);
+                scene.add(crystal);
+            }
+
+            // Holographic Grid
+            const gridSize = 50;
+            const divisions = 20;
+            const gridHelper = new THREE.GridHelper(gridSize, divisions, 0x00ffff, 0x004466);
+            gridHelper.position.y = -30;
+            gridHelper.material.opacity = 0.3;
+            gridHelper.material.transparent = true;
+            scene.add(gridHelper);
+
+            // DNA Helix Structure
+            createDNAHelix();
+        }
+
+        function createDNAHelix() {
+            const helixGroup = new THREE.Group();
+            const radius = 8;
+            const height = 40;
+            const segments = 50;
+
+            for (let i = 0; i < segments; i++) {
+                const angle1 = (i / segments) * Math.PI * 4;
+                const angle2 = angle1 + Math.PI;
+                const y = (i / segments) * height - height / 2;
+
+                // First strand
+                const sphere1 = new THREE.Mesh(
+                    new THREE.SphereGeometry(0.5),
+                    new THREE.MeshPhongMaterial({
+                        color: 0x00ffff,
+                        emissive: 0x002244,
+                        transparent: true,
+                        opacity: 0.8
+                    })
+                );
+                sphere1.position.set(
+                    Math.cos(angle1) * radius,
+                    y,
+                    Math.sin(angle1) * radius
+                );
+
+                // Second strand
+                const sphere2 = new THREE.Mesh(
+                    new THREE.SphereGeometry(0.5),
+                    new THREE.MeshPhongMaterial({
+                        color: 0xff00ff,
+                        emissive: 0x220044,
+                        transparent: true,
+                        opacity: 0.8
+                    })
+                );
+                sphere2.position.set(
+                    Math.cos(angle2) * radius,
+                    y,
+                    Math.sin(angle2) * radius
+                );
+
+                // Connection lines
+                if (i % 3 === 0) {
+                    const lineGeometry = new THREE.BufferGeometry();
+                    const points = [sphere1.position, sphere2.position];
+                    lineGeometry.setFromPoints(points);
+                    const line = new THREE.Line(
+                        lineGeometry,
+                        new THREE.LineBasicMaterial({
+                            color: 0xffffff,
+                            transparent: true,
+                            opacity: 0.4
+                        })
+                    );
+                    helixGroup.add(line);
+                }
+
+                helixGroup.add(sphere1);
+                helixGroup.add(sphere2);
+            }
+
+            helixGroup.position.set(-40, 0, -10);
+            helixGroup.userData = { rotationSpeed: 0.005 };
+            geometricObjects.push(helixGroup);
+            scene.add(helixGroup);
+        }
+
+        function createLightingSystem() {
+            // Ambient light
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.4);
+            scene.add(ambientLight);
+
+            // Dynamic point lights
+            const colors = [0x00ffff, 0xff00ff, 0xffff00];
+            for (let i = 0; i < 3; i++) {
+                const pointLight = new THREE.PointLight(colors[i], 1, 100);
+                pointLight.position.set(
+                    Math.cos(i * Math.PI * 2 / 3) * 30,
+                    Math.sin(i * Math.PI * 2 / 3) * 20,
+                    20
+                );
+                pointLight.userData = {
+                    originalPosition: pointLight.position.clone(),
+                    phase: i * Math.PI * 2 / 3
+                };
+                geometricObjects.push(pointLight);
+                scene.add(pointLight);
+            }
+        }
+
         function onDocumentMouseMove(event) {
-            mouseX = (event.clientX - window.innerWidth / 2) * 0.01;
-            mouseY = (event.clientY - window.innerHeight / 2) * 0.01;
+            mouseX = (event.clientX - window.innerWidth / 2) * 0.005;
+            mouseY = (event.clientY - window.innerHeight / 2) * 0.005;
         }
 
         function animate() {
             requestAnimationFrame(animate);
+            time += 0.01;
 
-            // Rotate particles
-            particles.rotation.x += 0.001;
-            particles.rotation.y += 0.002;
+            // Update particle system
+            if (particleSystem && particleSystem.material.uniforms) {
+                particleSystem.material.uniforms.time.value = time;
+                particleSystem.rotation.y += 0.001;
+            }
 
-            // Mouse interaction
-            camera.position.x += (mouseX - camera.position.x) * 0.05;
-            camera.position.y += (-mouseY - camera.position.y) * 0.05;
-            camera.lookAt(scene.position);
-
-            // Rotate geometric shapes
-            scene.children.forEach((child, index) => {
-                if (child.geometry && child.geometry.type === 'BoxGeometry') {
-                    child.rotation.x += 0.01 * (index + 1);
-                    child.rotation.y += 0.01 * (index + 1);
+            // Animate geometric objects
+            geometricObjects.forEach((obj, index) => {
+                if (obj.geometry && obj.geometry.type === 'RingGeometry') {
+                    obj.rotation.z += 0.01 * (index + 1);
+                    obj.material.opacity = 0.3 + Math.sin(time + index) * 0.2;
+                } else if (obj.geometry && obj.geometry.type === 'OctahedronGeometry') {
+                    obj.rotation.x += obj.userData.rotationSpeed;
+                    obj.rotation.y += obj.userData.rotationSpeed * 0.7;
+                    obj.position.y = obj.userData.originalY + Math.sin(time * obj.userData.floatSpeed) * 5;
+                } else if (obj.isGroup && obj.userData.rotationSpeed) {
+                    obj.rotation.y += obj.userData.rotationSpeed;
+                } else if (obj.isPointLight) {
+                    const phase = obj.userData.phase + time * 0.5;
+                    obj.position.x = obj.userData.originalPosition.x + Math.cos(phase) * 10;
+                    obj.position.y = obj.userData.originalPosition.y + Math.sin(phase) * 15;
                 }
             });
+
+            // Mouse interaction
+            camera.position.x += (mouseX * 20 - camera.position.x) * 0.05;
+            camera.position.y += (-mouseY * 20 - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
 
             renderer.render(scene, camera);
         }
@@ -1162,7 +1390,7 @@
 
         window.addEventListener('scroll', requestTick);
 
-        // Add contact form functionality placeholder
+        // Add contact form functionality
         function initContactForm() {
             // Add click handlers to contact items
             document.querySelectorAll('.contact-item').forEach(item => {
@@ -1203,6 +1431,60 @@
         });
 
         initContactForm();
+
+        // Add holographic text effect to certain elements
+        function addHolographicEffect() {
+            const skillIcons = document.querySelectorAll('.skill-icon');
+            skillIcons.forEach((icon, index) => {
+                setTimeout(() => {
+                    icon.classList.add('neon-glow');
+                }, index * 500);
+            });
+        }
+
+        // Initialize holographic effects
+        setTimeout(addHolographicEffect, 2000);
+
+        // Add particle trails on mouse move
+        let mouseTrail = [];
+        document.addEventListener('mousemove', (e) => {
+            mouseTrail.push({
+                x: e.clientX,
+                y: e.clientY,
+                time: Date.now()
+            });
+
+            // Keep only recent trail points
+            mouseTrail = mouseTrail.filter(point => Date.now() - point.time < 1000);
+        });
+
+        // Performance monitoring
+        let frameCount = 0;
+        let lastTime = performance.now();
+
+        function monitorPerformance() {
+            frameCount++;
+            const currentTime = performance.now();
+            
+            if (currentTime - lastTime >= 1000) {
+                const fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
+                frameCount = 0;
+                lastTime = currentTime;
+                
+                // Adjust quality based on performance
+                if (fps < 30 && particleSystem) {
+                    // Reduce particle count for better performance
+                    const positions = particleSystem.geometry.attributes.position;
+                    if (positions.count > 1000) {
+                        positions.count = Math.max(1000, positions.count * 0.8);
+                    }
+                }
+            }
+            
+            requestAnimationFrame(monitorPerformance);
+        }
+
+        monitorPerformance();
     </script>
 </body>
 </html>

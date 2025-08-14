@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Azharul Mangali - Quality Control Engineer</title>
+    <title>Muhammad Azharul Mangali - Embedded Engineer - Robotics Engineer</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         * {
@@ -13,10 +13,10 @@
         }
         
         body {
-            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #2c3e50;
-            background: #ffffff;
+            color: #333;
+            background: #f8f9fa;
             overflow-x: hidden;
         }
 
@@ -26,16 +26,11 @@
             top: 0;
             width: 100%;
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid #e9ecef;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
         }
         
         .navbar nav {
@@ -48,9 +43,9 @@
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2c3e50;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #495057;
             text-decoration: none;
         }
 
@@ -61,16 +56,16 @@
         }
 
         .nav-links a {
-            color: #2c3e50;
+            color: #6c757d;
             text-decoration: none;
             font-weight: 500;
             padding: 0.5rem 1rem;
-            border-radius: 8px;
+            border-radius: 6px;
             transition: all 0.3s ease;
         }
 
         .nav-links a:hover {
-            background: #3498db;
+            background: #6c757d;
             color: white;
         }
 
@@ -81,7 +76,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #868e96 0%, #495057 100%);
             color: white;
             overflow: hidden;
         }
@@ -102,26 +97,23 @@
             max-width: 800px;
             padding: 3rem;
             background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            backdrop-filter: blur(20px);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
+            font-size: 3.2rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #ffffff, #e8f4fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
         }
         
         .hero-content .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 1.5rem;
-            color: #e8f4fd;
-            font-weight: 300;
+            color: #f1f3f4;
+            font-weight: 400;
         }
 
         .hero-content .description {
@@ -134,30 +126,30 @@
         
         .cta-button {
             display: inline-block;
-            padding: 15px 40px;
+            padding: 15px 35px;
             background: #ffffff;
-            color: #3498db;
+            color: #495057;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
             background: #f8f9fa;
         }
 
         /* Section Styles */
         .section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
         
         .section:nth-child(even) {
-            background: #f8f9fa;
+            background: #ffffff;
         }
         
         .container {
@@ -167,18 +159,18 @@
         }
         
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2.2rem;
+            font-weight: 600;
             text-align: center;
             margin-bottom: 1rem;
-            color: #2c3e50;
+            color: #343a40;
         }
 
         .section-subtitle {
             text-align: center;
-            font-size: 1.1rem;
-            color: #7f8c8d;
-            margin-bottom: 4rem;
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 3rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
@@ -188,7 +180,7 @@
         .about-content {
             display: grid;
             grid-template-columns: 350px 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: center;
             max-width: 1000px;
             margin: 0 auto;
@@ -197,8 +189,8 @@
         .profile-card {
             background: white;
             padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             text-align: center;
             border: 1px solid #e9ecef;
         }
@@ -212,14 +204,8 @@
             width: 200px;
             height: 250px;
             object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-        
-        .profile-image img:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .profile-stats {
@@ -233,20 +219,20 @@
             text-align: center;
             padding: 1rem;
             background: #f8f9fa;
-            border-radius: 10px;
+            border-radius: 8px;
             transition: all 0.3s ease;
         }
         
         .stat-item:hover {
-            background: #3498db;
+            background: #6c757d;
             color: white;
             transform: translateY(-2px);
         }
         
         .stat-number {
             display: block;
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 600;
             margin-bottom: 0.25rem;
         }
         
@@ -256,8 +242,8 @@
         }
         
         .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1rem;
+            line-height: 1.7;
             color: #555;
         }
 
@@ -275,13 +261,12 @@
         
         .skill-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
             border: 1px solid #e9ecef;
             position: relative;
-            overflow: hidden;
         }
 
         .skill-card::before {
@@ -290,39 +275,39 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #3498db, #2980b9);
+            height: 3px;
+            background: linear-gradient(90deg, #6c757d, #495057);
         }
         
         .skill-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(52, 152, 219, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
         }
         
         .skill-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 1rem;
-            color: #2c3e50;
+            color: #343a40;
             display: flex;
             align-items: center;
             font-weight: 600;
         }
         
         .skill-icon {
-            width: 45px;
-            height: 45px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #6c757d, #495057);
+            border-radius: 8px;
             margin-right: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .skill-card p {
-            color: #666;
+            color: #6c757d;
             line-height: 1.6;
         }
 
@@ -341,16 +326,16 @@
             top: 0;
             bottom: 0;
             width: 2px;
-            background: #e9ecef;
+            background: #dee2e6;
         }
         
         .timeline-item {
             background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
+            padding: 2rem;
+            border-radius: 10px;
             margin-bottom: 2rem;
-            margin-left: 80px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            margin-left: 70px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             position: relative;
             border: 1px solid #e9ecef;
         }
@@ -358,79 +343,69 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -65px;
-            top: 30px;
-            width: 16px;
-            height: 16px;
-            background: #3498db;
+            left: -55px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: #6c757d;
             border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 0 0 4px #e9ecef;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px #dee2e6;
         }
         
         .timeline-item h3 {
-            font-size: 1.4rem;
-            color: #2c3e50;
+            font-size: 1.3rem;
+            color: #343a40;
             margin-bottom: 0.5rem;
             font-weight: 600;
         }
         
         .timeline-item .company {
-            color: #3498db;
+            color: #6c757d;
             font-weight: 600;
             margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .timeline-item .period {
-            color: #7f8c8d;
+            color: #868e96;
             font-size: 0.9rem;
             margin-bottom: 1rem;
             background: #f8f9fa;
             display: inline-block;
             padding: 0.25rem 0.75rem;
-            border-radius: 20px;
+            border-radius: 15px;
         }
 
         .timeline-item p {
-            color: #666;
+            color: #6c757d;
             line-height: 1.6;
         }
 
         /* Contact Section */
         .contact-section {
-            background: #f8f9fa;
-            color: #2c3e50;
-        }
-
-        .contact-section .section-title {
-            color: #2c3e50 !important;
-            font-weight: 700 !important;
-        }
-
-        .contact-section .section-subtitle {
-            color: #2c3e50 !important;
-            font-weight: 500 !important;
+            background: #ffffff;
+            color: #343a40;
         }
 
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            gap: 3rem;
             align-items: start;
         }
 
         .contact-info {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            gap: 1.5rem;
         }
         
         .contact-item {
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
             text-align: center;
             border: 1px solid #e9ecef;
             transition: all 0.3s ease;
@@ -439,41 +414,43 @@
         }
 
         .contact-item:hover {
-            background: #f8f9fa;
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            background: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6c757d, #495057);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
         }
         
         .contact-item h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #2c3e50 !important;
-            font-weight: 700 !important;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #343a40;
+            font-weight: 600;
         }
 
         .contact-item p {
-            font-size: 1rem;
-            color: #2c3e50 !important;
-            font-weight: 500 !important;
-        }
-
-        .contact-item.clickable::after {
-            content: "Click to contact";
-            position: absolute;
-            bottom: 0.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.7rem;
-            opacity: 0.7;
-            color: #3498db;
+            font-size: 0.95rem;
+            color: #6c757d;
+            font-weight: 400;
         }
 
         /* Maps Container */
         .maps-container {
             background: white;
-            border-radius: 15px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             border: 1px solid #e9ecef;
             position: relative;
         }
@@ -488,17 +465,20 @@
         }
 
         .maps-header h3 {
-            color: #2c3e50;
-            font-size: 1.2rem;
+            color: #343a40;
+            font-size: 1.1rem;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .open-maps-btn {
-            background: #3498db;
+            background: #6c757d;
             color: white;
             border: none;
             padding: 0.5rem 1rem;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -508,113 +488,41 @@
         }
 
         .open-maps-btn:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
+            background: #495057;
         }
 
         .map-frame {
             width: 100%;
             height: 300px;
             border: none;
-            display: block;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .map-frame:hover {
-            opacity: 0.9;
-        }
-
-        .map-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(52, 152, 219, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .map-overlay:hover {
-            opacity: 1;
-        }
-
-        .map-overlay-text {
-            background: rgba(52, 152, 219, 0.9);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1.1rem;
         }
 
         /* WhatsApp Floating Button */
         .whatsapp-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
+            width: 56px;
+            height: 56px;
+            bottom: 30px;
+            right: 30px;
             background-color: #25d366;
             color: white;
-            border-radius: 50px;
+            border-radius: 50%;
             text-align: center;
-            font-size: 30px;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+            font-size: 24px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
             z-index: 1000;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            animation: pulse 2s infinite;
         }
 
         .whatsapp-float:hover {
             background-color: #128c7e;
             transform: scale(1.1);
-            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
             color: white;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            }
-            50% {
-                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
-            }
-            100% {
-                box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
-            }
-        }
-
-        /* WhatsApp Tooltip */
-        .whatsapp-float::before {
-            content: "Chat via WhatsApp";
-            position: absolute;
-            top: -45px;
-            right: 0;
-            background: #2c3e50;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 12px;
-            white-space: nowrap;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-            pointer-events: none;
-        }
-
-        .whatsapp-float:hover::before {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         /* Responsive Design */
@@ -629,7 +537,7 @@
             }
 
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .hero-content .subtitle {
@@ -676,7 +584,7 @@
         /* Animation Classes */
         .fade-in {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             transition: all 0.6s ease;
         }
 
@@ -696,8 +604,8 @@
         .spinner {
             width: 40px;
             height: 40px;
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid #3498db;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #6c757d;
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -707,35 +615,25 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Futuristic Effects */
-        .holographic-text {
-            background: linear-gradient(45deg, #00f5ff, #ff00ff, #00ff00, #ffff00, #ff0080);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: holographic 3s ease-in-out infinite;
-        }
-
-        @keyframes holographic {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-
-        .neon-glow {
-            text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff, 0 0 15px #00f5ff, 0 0 20px #00f5ff;
-            animation: neonPulse 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes neonPulse {
-            from { text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff, 0 0 15px #00f5ff, 0 0 20px #00f5ff; }
-            to { text-shadow: 0 0 10px #00f5ff, 0 0 20px #00f5ff, 0 0 30px #00f5ff, 0 0 40px #00f5ff; }
+        /* Scroll Progress Indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #6c757d, #495057);
+            z-index: 9999;
+            transition: width 0.3s ease;
         }
     </style>
 </head>
 <body>
+    <div class="scroll-indicator"></div>
+    
     <nav class="navbar">
         <nav>
-            <a href="#home" class="logo">Azharul Mangali</a>
+            <a href="#home" class="logo">Muhammad Azharul Mangali</a>
             <ul class="nav-links">
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#about">Tentang</a></li>
@@ -750,8 +648,8 @@
         <div id="canvas-container"></div>
         <div class="hero-content">
             <h1>Muhammad Azharul Mangali</h1>
-            <p class="subtitle">Quality Control Engineer & Electronics Specialist</p>
-            <p class="description">Profesional berpengalaman dalam teknik elektronika, MEP, dan kontrol kualitas dengan komitmen tinggi untuk inovasi dan keunggulan dalam setiap proyek.</p>
+            <p class="subtitle">Embedded Engineer & Robotics Engineer & MEP</p>
+            <p class="description">Profesional berpengalaman dalam teknik elektronika, mengembangkan, dan memelihara sistem tertanam seperti menggunakan mikrokontroler (ESP32, RASPBERRY, Arduino) dan komponen hardware/software terkait, serta kontrol kualitas dengan komitmen tinggi untuk inovasi dan keunggulan dalam setiap proyek.</p>
             <a href="#about" class="cta-button">Jelajahi Portfolio Saya</a>
         </div>
     </section>
@@ -781,11 +679,9 @@
                     </div>
                 </div>
                 <div class="about-text">
-                    <p>Saya adalah seorang profesional berpengalaman di bidang elektronika, teknik MEP, dan kontrol kualitas dengan track record yang solid dalam mengelola proyek-proyek konstruksi dan instalasi.</p>
-                    
-                    <p>Dengan latar belakang pendidikan Diploma Teknik Elektronika dari Politeknik Negeri Cilacap, saya telah mengembangkan keahlian yang komprehensif dalam supervisi elektronik, engineering, dan quality control engineering.</p>
-                    
-                    <p>Pengalaman saya mencakup instalasi sistem kelistrikan, pembuatan SOP pekerjaan lapangan, koordinasi tim teknisi, dan peningkatan efisiensi operasional hingga 25%. Saya berkomitmen untuk terus berinovasi dan memberikan kontribusi signifikan dalam setiap proyek yang saya tangani.</p>
+                    <p>Profesional di bidang Elektronika, MEP, Embedded Systems, dan Robotics Engineering dengan pengalaman merancang dan mengembangkan sistem tertanam (ESP32, RASPBERRY, Arduino), integrasi perangkat keras, serta pemrograman firmware (C/C++ & Python) dibantu AI. Terampil merancang sistem robotik end-to-end, mengembangkan sistem kendali, dan integrasi komponen seperti motor servo, sensor, serta modul komunikasi nirkabel.</p>
+
+                    <p>Di sektor MEP & Quality Control, saya telah menangani instalasi sistem kelistrikan, penyusunan SOP pekerjaan lapangan, koordinasi tim teknisi, dan berhasil meningkatkan efisiensi operasional hingga 25%. Dengan komitmen tinggi terhadap kualitas dan inovasi, saya selalu berupaya menghadirkan solusi teknologi yang terintegrasi dan memberikan kontribusi signifikan di setiap proyek yang saya tangani.</p>
                 </div>
             </div>
         </div>
@@ -820,6 +716,14 @@
                     <h3><span class="skill-icon">📋</span>Project Management</h3>
                     <p>Pengalaman mengelola administrasi proyek, koordinasi stakeholder, pembuatan laporan kemajuan, dan memastikan delivery tepat waktu sesuai budget.</p>
                 </div>
+                <div class="skill-card fade-in">
+                    <h3><span class="skill-icon">🔲</span>Embedded Systems & Mikrokontroler</h3>
+                    <p>Pengalaman dalam perancangan, pengembangan, dan pemeliharaan sistem tertanam menggunakan mikrokontroler seperti ESP32, Raspberry Pi dan Arduino, integrasi perangkat keras/perangkat lunak, serta pemrograman firmware tingkat rendah (C++, Python, assembler) dibantu dengan AI untuk memastikan kinerja optimal.</p>
+                </div>
+                <div class="skill-card fade-in">
+                    <h3><span class="skill-icon">🤖</span>Robotics Engineering</h3>
+                    <p>Merancang dan mengembangkan sistem robotik end-to-end, sistem kendali otomatis, integrasi sensor dan aktuator, serta komunikasi antar perangkat dengan protokol I²C, SPI, UART, dan wireless communication.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -829,6 +733,12 @@
             <h2 class="section-title">Pengalaman Profesional</h2>
             <p class="section-subtitle">Perjalanan karir yang menunjukkan pertumbuhan dan pencapaian konsisten</p>
             <div class="experience-timeline">
+                <div class="timeline-item fade-in">
+                    <h3>Jasa Pembuatan Sistem Elektronika Freelance</h3>
+                    <div class="company">AZiot</div>
+                    <div class="period">Maret 2025 - Sekarang</div>
+                    <p>Melayani mahasiswa yang sedang menyelesaikan tugas akhir serta skripsi dan juga masyarakat yang ingin menggunakan sistem elektronik di rumah tangga. Fokus pada pengembangan sistem IoT, otomasi rumah, dan solusi elektronik custom.</p>
+                </div>
                 <div class="timeline-item fade-in">
                     <h3>Quality Controller</h3>
                     <div class="company">PT Belko Indo</div>
@@ -857,20 +767,24 @@
             <p class="section-subtitle">Mari berdiskusi tentang peluang kerjasama dan proyek yang menarik</p>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item fade-in">
-                        <h3>📧 Email</h3>
-                        <p>azharulmangali21@gmail.com</p>
+                    <div class="contact-item fade-in" data-contact="email">
+                        <div class="contact-item-icon">📧</div>
+                        <h3>Email</h3>
+                        <p>azzamangali70@gmail.com</p>
                     </div>
-                    <div class="contact-item fade-in">
-                        <h3>📱 Telepon</h3>
+                    <div class="contact-item fade-in" data-contact="phone">
+                        <div class="contact-item-icon">📱</div>
+                        <h3>Telepon</h3>
                         <p>+62 822 2513 9075</p>
                     </div>
                     <div class="contact-item fade-in">
-                        <h3>📍 Lokasi</h3>
+                        <div class="contact-item-icon">📍</div>
+                        <h3>Lokasi</h3>
                         <p>Tanjung Duren Utara<br>Jakarta Barat, Indonesia</p>
                     </div>
                     <div class="contact-item fade-in">
-                        <h3>🎓 Pendidikan</h3>
+                        <div class="contact-item-icon">🎓</div>
+                        <h3>Pendidikan</h3>
                         <p>D3 Teknik Elektronika<br>Politeknik Negeri Cilacap</p>
                     </div>
                 </div>
@@ -884,20 +798,14 @@
                     <div id="map-loading" class="loading">
                         <div class="spinner"></div>
                     </div>
-                    <div style="position: relative;">
-                        <iframe id="location-map" 
-                                class="map-frame" 
-                                style="display: none;"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15865.542891738154!2d106.78392425!3d-6.1754871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f64c5e8866a9%3A0x3c891379e6c98a3b!2sTanjung%20Duren%20Utara%2C%20Grogol%20petamburan%2C%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sen!2sid!4v1709123456789!5m2!1sen!2sid"
-                                allowfullscreen="" 
-                                loading="lazy" 
-                                referrerpolicy="no-referrer-when-downgrade"
-                                onclick="openGoogleMaps()">
-                        </iframe>
-                        <div class="map-overlay" onclick="openGoogleMaps()">
-                            <div class="map-overlay-text">🗺️ Buka di Google Maps</div>
-                        </div>
-                    </div>
+                    <iframe id="location-map" 
+                            class="map-frame" 
+                            style="display: none;"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15865.542891738154!2d106.78392425!3d-6.1754871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f64c5e8866a9%3A0x3c891379e6c98a3b!2sTanjung%20Duren%20Utara%2C%20Grogol%20petamburan%2C%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sen!2sid!4v1709123456789!5m2!1sen!2sid"
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -907,7 +815,8 @@
     <a href="https://wa.me/6285258600345?text=Halo%20Muhammad%20Azharul%20Mangali,%20saya%20tertarik%20untuk%20berdiskusi%20tentang%20peluang%20kerjasama." 
        class="whatsapp-float" 
        target="_blank" 
-       rel="noopener noreferrer">
+       rel="noopener noreferrer"
+       title="Chat via WhatsApp">
         💬
     </a>
 
@@ -918,13 +827,13 @@
             img.src = 'fotoku.png';
             img.onerror = function() {
                 this.style.display = 'none';
-                this.parentElement.innerHTML = '<div style="width: 200px; height: 250px; background: linear-gradient(135deg, #3498db, #2980b9); border-radius: 15px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; font-weight: bold;">AM</div>';
+                this.parentElement.innerHTML = '<div style="width: 200px; height: 250px; background: linear-gradient(135deg, #6c757d, #495057); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; font-weight: 600;">AM</div>';
             };
         }
 
         document.addEventListener('DOMContentLoaded', loadProfileImage);
 
-        // Enhanced 3D Scene with Futuristic Elements
+        // Realistic 3D Scene with Subtle Animation
         let scene, camera, renderer, particles, particleSystem;
         let mouseX = 0, mouseY = 0;
         let geometricObjects = [];
@@ -936,49 +845,40 @@
             renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setClearColor(0x000000, 0);
-            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
             document.getElementById('canvas-container').appendChild(renderer.domElement);
 
-            // Enhanced Particle System
-            createAdvancedParticleSystem();
+            // Create subtle particle system
+            createRealisticParticleSystem();
             
-            // Add Futuristic Geometric Objects
-            createFuturisticObjects();
+            // Add subtle geometric elements
+            createMinimalGeometry();
             
-            // Add Ambient and Point Lights
-            createLightingSystem();
-            
-            camera.position.z = 50;
+            camera.position.z = 30;
             document.addEventListener('mousemove', onDocumentMouseMove, false);
         }
 
-        function createAdvancedParticleSystem() {
-            const particleCount = 2000;
+        function createRealisticParticleSystem() {
+            const particleCount = 800;
             const positions = new Float32Array(particleCount * 3);
             const colors = new Float32Array(particleCount * 3);
             const sizes = new Float32Array(particleCount);
-            const velocities = new Float32Array(particleCount * 3);
 
             for (let i = 0; i < particleCount; i++) {
                 const i3 = i * 3;
                 
-                // Positions
-                positions[i3] = (Math.random() - 0.5) * 200;
-                positions[i3 + 1] = (Math.random() - 0.5) * 200;
-                positions[i3 + 2] = (Math.random() - 0.5) * 200;
+                // More subtle positioning
+                positions[i3] = (Math.random() - 0.5) * 150;
+                positions[i3 + 1] = (Math.random() - 0.5) * 150;
+                positions[i3 + 2] = (Math.random() - 0.5) * 150;
                 
-                // Colors - Futuristic cyan/blue palette
-                colors[i3] = Math.random() * 0.5 + 0.5; // Red
-                colors[i3 + 1] = Math.random() * 0.5 + 0.5; // Green
-                colors[i3 + 2] = 1.0; // Blue
+                // Grayscale colors with subtle variation
+                const grayValue = Math.random() * 0.3 + 0.7;
+                colors[i3] = grayValue;
+                colors[i3 + 1] = grayValue;
+                colors[i3 + 2] = grayValue;
                 
-                // Sizes
-                sizes[i] = Math.random() * 3 + 1;
-                
-                // Velocities
-                velocities[i3] = (Math.random() - 0.5) * 0.02;
-                velocities[i3 + 1] = (Math.random() - 0.5) * 0.02;
-                velocities[i3 + 2] = (Math.random() - 0.5) * 0.02;
+                sizes[i] = Math.random() * 2 + 0.5;
             }
 
             const particleGeometry = new THREE.BufferGeometry();
@@ -988,8 +888,7 @@
 
             const particleMaterial = new THREE.ShaderMaterial({
                 uniforms: {
-                    time: { value: 0 },
-                    pixelRatio: { value: window.devicePixelRatio }
+                    time: { value: 0 }
                 },
                 vertexShader: `
                     attribute float size;
@@ -1001,11 +900,10 @@
                         vColor = color;
                         vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
                         
-                        // Add wave motion
-                        mvPosition.y += sin(time + position.x * 0.01) * 10.0;
-                        mvPosition.x += cos(time + position.z * 0.01) * 5.0;
+                        // Subtle floating motion
+                        mvPosition.y += sin(time * 0.5 + position.x * 0.01) * 2.0;
                         
-                        gl_PointSize = size * (300.0 / -mvPosition.z);
+                        gl_PointSize = size * (200.0 / -mvPosition.z);
                         gl_Position = projectionMatrix * mvPosition;
                     }
                 `,
@@ -1018,14 +916,12 @@
                         strength = max(strength, 0.0);
                         
                         vec3 finalColor = vColor * strength;
-                        float alpha = strength * 0.8;
+                        float alpha = strength * 0.4;
                         
                         gl_FragColor = vec4(finalColor, alpha);
                     }
                 `,
                 transparent: true,
-                blending: THREE.AdditiveBlending,
-                depthTest: false,
                 vertexColors: true
             });
 
@@ -1033,155 +929,46 @@
             scene.add(particleSystem);
         }
 
-        function createFuturisticObjects() {
-            // Holographic Rings
-            for (let i = 0; i < 3; i++) {
-                const ringGeometry = new THREE.RingGeometry(15 + i * 10, 17 + i * 10, 32);
-                const ringMaterial = new THREE.MeshBasicMaterial({
-                    color: new THREE.Color().setHSL(0.6 + i * 0.1, 1, 0.5),
-                    transparent: true,
-                    opacity: 0.3,
-                    side: THREE.DoubleSide
-                });
-                const ring = new THREE.Mesh(ringGeometry, ringMaterial);
-                ring.position.set(0, 0, -20 - i * 5);
-                ring.rotation.x = Math.PI / 2;
-                geometricObjects.push(ring);
-                scene.add(ring);
-            }
-
-            // Floating Crystals
-            for (let i = 0; i < 8; i++) {
-                const crystalGeometry = new THREE.OctahedronGeometry(3);
-                const crystalMaterial = new THREE.MeshPhongMaterial({
-                    color: new THREE.Color().setHSL(0.5 + i * 0.1, 0.8, 0.6),
-                    transparent: true,
-                    opacity: 0.7,
-                    shininess: 100
-                });
-                const crystal = new THREE.Mesh(crystalGeometry, crystalMaterial);
-                crystal.position.set(
-                    (Math.random() - 0.5) * 100,
-                    (Math.random() - 0.5) * 100,
-                    (Math.random() - 0.5) * 50
+        function createMinimalGeometry() {
+            // Subtle geometric lines
+            for (let i = 0; i < 5; i++) {
+                const geometry = new THREE.BufferGeometry();
+                const points = [];
+                
+                const startX = (Math.random() - 0.5) * 100;
+                const startY = (Math.random() - 0.5) * 100;
+                const startZ = (Math.random() - 0.5) * 50;
+                
+                points.push(new THREE.Vector3(startX, startY, startZ));
+                points.push(new THREE.Vector3(startX + (Math.random() - 0.5) * 50, startY + (Math.random() - 0.5) * 50, startZ + (Math.random() - 0.5) * 25));
+                
+                geometry.setFromPoints(points);
+                
+                const line = new THREE.Line(
+                    geometry,
+                    new THREE.LineBasicMaterial({
+                        color: new THREE.Color(0.7, 0.7, 0.7),
+                        transparent: true,
+                        opacity: 0.2
+                    })
                 );
-                crystal.userData = {
-                    rotationSpeed: Math.random() * 0.02 + 0.01,
-                    floatSpeed: Math.random() * 0.01 + 0.005,
-                    originalY: crystal.position.y
+                
+                line.userData = {
+                    rotationSpeed: Math.random() * 0.005 + 0.001
                 };
-                geometricObjects.push(crystal);
-                scene.add(crystal);
+                
+                geometricObjects.push(line);
+                scene.add(line);
             }
 
-            // Holographic Grid
-            const gridSize = 50;
-            const divisions = 20;
-            const gridHelper = new THREE.GridHelper(gridSize, divisions, 0x00ffff, 0x004466);
-            gridHelper.position.y = -30;
-            gridHelper.material.opacity = 0.3;
-            gridHelper.material.transparent = true;
-            scene.add(gridHelper);
-
-            // DNA Helix Structure
-            createDNAHelix();
-        }
-
-        function createDNAHelix() {
-            const helixGroup = new THREE.Group();
-            const radius = 8;
-            const height = 40;
-            const segments = 50;
-
-            for (let i = 0; i < segments; i++) {
-                const angle1 = (i / segments) * Math.PI * 4;
-                const angle2 = angle1 + Math.PI;
-                const y = (i / segments) * height - height / 2;
-
-                // First strand
-                const sphere1 = new THREE.Mesh(
-                    new THREE.SphereGeometry(0.5),
-                    new THREE.MeshPhongMaterial({
-                        color: 0x00ffff,
-                        emissive: 0x002244,
-                        transparent: true,
-                        opacity: 0.8
-                    })
-                );
-                sphere1.position.set(
-                    Math.cos(angle1) * radius,
-                    y,
-                    Math.sin(angle1) * radius
-                );
-
-                // Second strand
-                const sphere2 = new THREE.Mesh(
-                    new THREE.SphereGeometry(0.5),
-                    new THREE.MeshPhongMaterial({
-                        color: 0xff00ff,
-                        emissive: 0x220044,
-                        transparent: true,
-                        opacity: 0.8
-                    })
-                );
-                sphere2.position.set(
-                    Math.cos(angle2) * radius,
-                    y,
-                    Math.sin(angle2) * radius
-                );
-
-                // Connection lines
-                if (i % 3 === 0) {
-                    const lineGeometry = new THREE.BufferGeometry();
-                    const points = [sphere1.position, sphere2.position];
-                    lineGeometry.setFromPoints(points);
-                    const line = new THREE.Line(
-                        lineGeometry,
-                        new THREE.LineBasicMaterial({
-                            color: 0xffffff,
-                            transparent: true,
-                            opacity: 0.4
-                        })
-                    );
-                    helixGroup.add(line);
-                }
-
-                helixGroup.add(sphere1);
-                helixGroup.add(sphere2);
-            }
-
-            helixGroup.position.set(-40, 0, -10);
-            helixGroup.userData = { rotationSpeed: 0.005 };
-            geometricObjects.push(helixGroup);
-            scene.add(helixGroup);
-        }
-
-        function createLightingSystem() {
             // Ambient light
-            const ambientLight = new THREE.AmbientLight(0x404040, 0.4);
+            const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
             scene.add(ambientLight);
-
-            // Dynamic point lights
-            const colors = [0x00ffff, 0xff00ff, 0xffff00];
-            for (let i = 0; i < 3; i++) {
-                const pointLight = new THREE.PointLight(colors[i], 1, 100);
-                pointLight.position.set(
-                    Math.cos(i * Math.PI * 2 / 3) * 30,
-                    Math.sin(i * Math.PI * 2 / 3) * 20,
-                    20
-                );
-                pointLight.userData = {
-                    originalPosition: pointLight.position.clone(),
-                    phase: i * Math.PI * 2 / 3
-                };
-                geometricObjects.push(pointLight);
-                scene.add(pointLight);
-            }
         }
 
         function onDocumentMouseMove(event) {
-            mouseX = (event.clientX - window.innerWidth / 2) * 0.005;
-            mouseY = (event.clientY - window.innerHeight / 2) * 0.005;
+            mouseX = (event.clientX - window.innerWidth / 2) * 0.002;
+            mouseY = (event.clientY - window.innerHeight / 2) * 0.002;
         }
 
         function animate() {
@@ -1191,30 +978,20 @@
             // Update particle system
             if (particleSystem && particleSystem.material.uniforms) {
                 particleSystem.material.uniforms.time.value = time;
-                particleSystem.rotation.y += 0.001;
+                particleSystem.rotation.y += 0.0005;
             }
 
-            // Animate geometric objects
-            geometricObjects.forEach((obj, index) => {
-                if (obj.geometry && obj.geometry.type === 'RingGeometry') {
-                    obj.rotation.z += 0.01 * (index + 1);
-                    obj.material.opacity = 0.3 + Math.sin(time + index) * 0.2;
-                } else if (obj.geometry && obj.geometry.type === 'OctahedronGeometry') {
+            // Subtle animation for geometric objects
+            geometricObjects.forEach((obj) => {
+                if (obj.userData.rotationSpeed) {
                     obj.rotation.x += obj.userData.rotationSpeed;
-                    obj.rotation.y += obj.userData.rotationSpeed * 0.7;
-                    obj.position.y = obj.userData.originalY + Math.sin(time * obj.userData.floatSpeed) * 5;
-                } else if (obj.isGroup && obj.userData.rotationSpeed) {
-                    obj.rotation.y += obj.userData.rotationSpeed;
-                } else if (obj.isPointLight) {
-                    const phase = obj.userData.phase + time * 0.5;
-                    obj.position.x = obj.userData.originalPosition.x + Math.cos(phase) * 10;
-                    obj.position.y = obj.userData.originalPosition.y + Math.sin(phase) * 15;
+                    obj.rotation.y += obj.userData.rotationSpeed * 0.5;
                 }
             });
 
-            // Mouse interaction
-            camera.position.x += (mouseX * 20 - camera.position.x) * 0.05;
-            camera.position.y += (-mouseY * 20 - camera.position.y) * 0.05;
+            // Subtle mouse interaction
+            camera.position.x += (mouseX * 10 - camera.position.x) * 0.02;
+            camera.position.y += (-mouseY * 10 - camera.position.y) * 0.02;
             camera.lookAt(scene.position);
 
             renderer.render(scene, camera);
@@ -1238,15 +1015,15 @@
             });
         });
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+        // Scroll progress indicator
+        function updateScrollProgress() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.querySelector('.scroll-indicator').style.width = scrolled + '%';
+        }
+
+        window.addEventListener('scroll', updateScrollProgress);
 
         // Window resize handler
         window.addEventListener('resize', function() {
@@ -1281,11 +1058,40 @@
             const loading = document.getElementById('map-loading');
             const map = document.getElementById('location-map');
             
-            loading.style.display = 'none';
-            map.style.display = 'block';
+            if (loading && map) {
+                loading.style.display = 'none';
+                map.style.display = 'block';
+            }
         }, 2000);
 
-        // Add mobile menu functionality for smaller screens
+        // Contact functionality
+        function initContactForm() {
+            document.querySelectorAll('.contact-item').forEach(item => {
+                const contactType = item.getAttribute('data-contact');
+                
+                if (contactType === 'email') {
+                    item.addEventListener('click', () => {
+                        window.location.href = 'mailto:azzamangali70@gmail.com';
+                    });
+                    item.style.cursor = 'pointer';
+                } else if (contactType === 'phone') {
+                    item.addEventListener('click', () => {
+                        window.location.href = 'tel:+6282225139075';
+                    });
+                    item.style.cursor = 'pointer';
+                }
+            });
+        }
+
+        // Function to open Google Maps
+        function openGoogleMaps() {
+            const location = "Tanjung Duren Utara, Grogol Petamburan, Jakarta Barat, Indonesia";
+            const encodedLocation = encodeURIComponent(location);
+            const mapsUrl = `https://www.google.com/maps/search/${encodedLocation}`;
+            window.open(mapsUrl, '_blank', 'noopener,noreferrer');
+        }
+
+        // Mobile menu functionality
         function createMobileMenu() {
             const navbar = document.querySelector('.navbar nav');
             const navLinks = document.querySelector('.nav-links');
@@ -1299,9 +1105,10 @@
                         background: none;
                         border: none;
                         font-size: 1.5rem;
-                        color: #2c3e50;
+                        color: #495057;
                         cursor: pointer;
                         display: block;
+                        padding: 0.5rem;
                     `;
                     
                     mobileToggle.addEventListener('click', () => {
@@ -1310,181 +1117,62 @@
                     
                     navbar.insertBefore(mobileToggle, navLinks);
                     navLinks.style.display = 'none';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '100%';
+                    navLinks.style.left = '0';
+                    navLinks.style.right = '0';
+                    navLinks.style.backgroundColor = 'white';
+                    navLinks.style.padding = '1rem';
+                    navLinks.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
                 }
             } else {
                 const mobileToggle = navbar.querySelector('.mobile-toggle');
                 if (mobileToggle) {
                     mobileToggle.remove();
                     navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'row';
+                    navLinks.style.position = 'static';
+                    navLinks.style.backgroundColor = 'transparent';
+                    navLinks.style.padding = '0';
+                    navLinks.style.boxShadow = 'none';
                 }
             }
         }
 
         window.addEventListener('resize', createMobileMenu);
-        createMobileMenu();
-
-        // Add typing effect to hero subtitle
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            
-            type();
-        }
-
-        // Initialize typing effect after page load
-        window.addEventListener('load', () => {
-            const subtitle = document.querySelector('.hero-content .subtitle');
-            const originalText = subtitle.textContent;
-            setTimeout(() => {
-                typeWriter(subtitle, originalText, 80);
-            }, 1000);
+        
+        // Initialize everything
+        document.addEventListener('DOMContentLoaded', function() {
+            createMobileMenu();
+            initContactForm();
         });
 
-        // Add scroll progress indicator
-        function createScrollIndicator() {
-            const indicator = document.createElement('div');
-            indicator.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 0%;
-                height: 3px;
-                background: linear-gradient(90deg, #3498db, #2980b9);
-                z-index: 9999;
-                transition: width 0.3s ease;
-            `;
-            document.body.appendChild(indicator);
-
-            window.addEventListener('scroll', () => {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                indicator.style.width = scrolled + '%';
-            });
-        }
-
-        createScrollIndicator();
-
-        // Add performance optimization
+        // Performance optimization
         let ticking = false;
-
-        function updateAnimations() {
-            // Update any scroll-based animations here
-            ticking = false;
-        }
 
         function requestTick() {
             if (!ticking) {
-                requestAnimationFrame(updateAnimations);
+                requestAnimationFrame(() => {
+                    updateScrollProgress();
+                    ticking = false;
+                });
                 ticking = true;
             }
         }
 
         window.addEventListener('scroll', requestTick);
 
-        // Add contact form functionality
-        function initContactForm() {
-            // Add click handlers to contact items
-            document.querySelectorAll('.contact-item').forEach(item => {
-                const heading = item.querySelector('h3').textContent;
-                const text = item.querySelector('p').textContent;
-                
-                if (text.includes('@')) {
-                    item.classList.add('clickable');
-                    item.addEventListener('click', () => {
-                        window.location.href = `mailto:${text}`;
-                    });
-                } else if (text.includes('+62') || heading.includes('Telepon')) {
-                    item.classList.add('clickable');
-                    item.addEventListener('click', () => {
-                        const phoneNumber = text.replace(/\s+/g, '').replace(/\+/g, '');
-                        window.location.href = `tel:+${phoneNumber}`;
-                    });
-                }
+        // Add subtle hover effects
+        document.querySelectorAll('.skill-card, .timeline-item, .contact-item').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
             });
-        }
-
-        // Function to open Google Maps
-        function openGoogleMaps() {
-            const location = "Tanjung Duren Utara, Grogol Petamburan, Jakarta Barat, Indonesia";
-            const encodedLocation = encodeURIComponent(location);
-            const mapsUrl = `https://www.google.com/maps/search/${encodedLocation}`;
-            window.open(mapsUrl, '_blank', 'noopener,noreferrer');
-        }
-
-        // Add click event to map iframe
-        document.addEventListener('DOMContentLoaded', function() {
-            const mapFrame = document.getElementById('location-map');
-            if (mapFrame) {
-                mapFrame.addEventListener('load', function() {
-                    this.style.cursor = 'pointer';
-                });
-            }
-        });
-
-        initContactForm();
-
-        // Add holographic text effect to certain elements
-        function addHolographicEffect() {
-            const skillIcons = document.querySelectorAll('.skill-icon');
-            skillIcons.forEach((icon, index) => {
-                setTimeout(() => {
-                    icon.classList.add('neon-glow');
-                }, index * 500);
-            });
-        }
-
-        // Initialize holographic effects
-        setTimeout(addHolographicEffect, 2000);
-
-        // Add particle trails on mouse move
-        let mouseTrail = [];
-        document.addEventListener('mousemove', (e) => {
-            mouseTrail.push({
-                x: e.clientX,
-                y: e.clientY,
-                time: Date.now()
-            });
-
-            // Keep only recent trail points
-            mouseTrail = mouseTrail.filter(point => Date.now() - point.time < 1000);
-        });
-
-        // Performance monitoring
-        let frameCount = 0;
-        let lastTime = performance.now();
-
-        function monitorPerformance() {
-            frameCount++;
-            const currentTime = performance.now();
             
-            if (currentTime - lastTime >= 1000) {
-                const fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
-                frameCount = 0;
-                lastTime = currentTime;
-                
-                // Adjust quality based on performance
-                if (fps < 30 && particleSystem) {
-                    // Reduce particle count for better performance
-                    const positions = particleSystem.geometry.attributes.position;
-                    if (positions.count > 1000) {
-                        positions.count = Math.max(1000, positions.count * 0.8);
-                    }
-                }
-            }
-            
-            requestAnimationFrame(monitorPerformance);
-        }
-
-        monitorPerformance();
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
     </script>
 </body>
 </html>

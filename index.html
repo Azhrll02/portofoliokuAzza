@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Azharul Mangali - Technology & Project Management Professional</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -128,50 +127,98 @@
             overflow: hidden;
         }
 
-        /* Background Slider */
-        .bg-slider {
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* 3D Photo Slider */
+        .slider-container {
+            position: relative;
             width: 100%;
             height: 100%;
-            z-index: 0;
+            perspective: 1200px;
+            overflow: hidden;
         }
 
-        .bg-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .slider-3d {
+            position: relative;
             width: 100%;
             height: 100%;
-            background-size: cover;
-            background-position: center;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+
+        .slide-3d {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 400px;
+            margin: -200px 0 0 -300px;
+            border-radius: 16px;
+            overflow: hidden;
             opacity: 0;
-            transition: opacity 1s ease-in-out;
+            transform-style: preserve-3d;
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        .bg-slide.active {
-            opacity: 0.15;
+        .slide-3d.active {
+            opacity: 1;
+            transform: translateZ(0) rotateY(0);
+            z-index: 10;
         }
 
-        .slider-controls {
+        .slide-3d.prev {
+            opacity: 0.7;
+            transform: translateX(-70%) translateZ(-200px) rotateY(15deg);
+            z-index: 9;
+            filter: blur(2px);
+        }
+
+        .slide-3d.next {
+            opacity: 0.7;
+            transform: translateX(70%) translateZ(-200px) rotateY(-15deg);
+            z-index: 9;
+            filter: blur(2px);
+        }
+
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        /* Reflective Effect */
+        .slide-reflection {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(to top, rgba(255, 255, 255, 0.3), transparent);
+            transform: scaleY(-1);
+            opacity: 0.4;
+            border-radius: 16px;
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 100%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        .slider-controls-3d {
             position: absolute;
             top: 50%;
             width: 100%;
             display: flex;
             justify-content: space-between;
             padding: 0 2rem;
-            z-index: 2;
+            z-index: 20;
             transform: translateY(-50%);
         }
 
-        .slider-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .slider-btn-3d {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
             font-size: 1.25rem;
-            width: 44px;
-            height: 44px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             cursor: pointer;
             transition: var(--transition);
@@ -179,57 +226,54 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .slider-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .slider-btn-3d:hover {
+            background: rgba(255, 255, 255, 0.25);
             transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .slider-dots {
+        .slider-dots-3d {
             position: absolute;
-            bottom: 30px;
+            bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
-            z-index: 2;
+            gap: 12px;
+            z-index: 20;
         }
 
-        .dot {
-            width: 10px;
-            height: 10px;
+        .dot-3d {
+            width: 12px;
+            height: 12px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
-        .dot.active {
+        .dot-3d.active {
             background: white;
-            width: 24px;
-            border-radius: 6px;
-        }
-
-        #canvas-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
+            transform: scale(1.3);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
             text-align: center;
             max-width: 800px;
+            width: 90%;
             padding: 3rem;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 16px;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: var(--shadow-xl);
         }
@@ -240,6 +284,7 @@
             margin-bottom: 1rem;
             color: #ffffff;
             line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .hero-content .subtitle {
@@ -270,14 +315,14 @@
             font-weight: 600;
             font-size: 1rem;
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .cta-button:hover {
             background: var(--gray-light);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
         /* Section Styles */
@@ -327,6 +372,98 @@
             line-height: 1.6;
         }
 
+        /* Responsive Design for Slider */
+        @media (max-width: 1024px) {
+            .slide-3d {
+                width: 500px;
+                height: 350px;
+                margin: -175px 0 0 -250px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                height: auto;
+                min-height: 100vh;
+                padding: 80px 0 60px;
+            }
+
+            .slider-container {
+                height: 50vh;
+                min-height: 400px;
+                margin-bottom: 40px;
+            }
+
+            .slide-3d {
+                width: 300px;
+                height: 200px;
+                margin: -100px 0 0 -150px;
+            }
+
+            .slide-3d.prev {
+                transform: translateX(-90%) translateZ(-150px) rotateY(20deg);
+            }
+
+            .slide-3d.next {
+                transform: translateX(90%) translateZ(-150px) rotateY(-20deg);
+            }
+
+            .hero-content {
+                position: relative;
+                top: auto;
+                left: auto;
+                transform: none;
+                margin: 20px auto;
+                padding: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-content .description {
+                font-size: 1rem;
+            }
+
+            .slider-btn-3d {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                padding: 0;
+            }
+
+            .slider-controls-3d {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slide-3d {
+                width: 250px;
+                height: 170px;
+                margin: -85px 0 0 -125px;
+            }
+
+            .slider-dots-3d {
+                bottom: 20px;
+            }
+
+            .dot-3d {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        /* Touch support for mobile */
+        .slider-container {
+            touch-action: pan-y;
+        }
+
+        /* Rest of your existing styles remain the same... */
         /* About Section */
         .about-content {
             display: grid;
@@ -898,31 +1035,8 @@
                 justify-content: center;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content .subtitle {
-                font-size: 1.2rem;
-            }
-
-            .hero-content {
-                padding: 2rem;
-                margin: 0 1rem;
-            }
-
-            .slider-controls {
-                padding: 0 1rem;
-            }
-
-            .slider-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            .slider-dots {
-                bottom: 15px;
+            .section-title {
+                font-size: 2rem;
             }
 
             .skills-grid {
@@ -955,10 +1069,6 @@
 
             .timeline-item::before {
                 left: -25px;
-            }
-
-            .section-title {
-                font-size: 2rem;
             }
         }
 
@@ -1105,20 +1215,17 @@
     </nav>
 
     <section id="home" class="hero-section">
-        <div id="canvas-container"></div>
-        <div id="bg-slider" class="bg-slider">
-            <div class="bg-slide active" style="background-image: url('1.png')"></div>
-            <div class="bg-slide" style="background-image: url('2.png')"></div>
-            <div class="bg-slide" style="background-image: url('3.png')"></div>
-        </div>
-        <div class="slider-controls">
-            <button class="slider-btn prev-btn" onclick="changeSlide(-1)">❮</button>
-            <button class="slider-btn next-btn" onclick="changeSlide(1)">❯</button>
-        </div>
-        <div class="slider-dots">
-            <span class="dot active" onclick="currentSlide(0)"></span>
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
+        <div class="slider-container">
+            <div class="slider-3d" id="slider3d">
+                <!-- Slides will be added dynamically -->
+            </div>
+            <div class="slider-controls-3d">
+                <button class="slider-btn-3d prev-btn-3d" onclick="changeSlide3d(-1)">❮</button>
+                <button class="slider-btn-3d next-btn-3d" onclick="changeSlide3d(1)">❯</button>
+            </div>
+            <div class="slider-dots-3d" id="sliderDots">
+                <!-- Dots will be added dynamically -->
+            </div>
         </div>
         <div class="hero-content">
             <h1>Muhammad Azharul Mangali</h1>
@@ -1470,37 +1577,194 @@
     </a>
 
     <script>
-        // Background Slider
-        let currentSlideIndex = 0;
-        const slides = document.querySelectorAll('.bg-slide');
-        const dots = document.querySelectorAll('.dot');
+        // 3D Slider Implementation
+        let currentSlide3dIndex = 0;
+        let slides3d = [];
+        let dots3d = [];
+        let isAnimating = false;
+        let touchStartX = 0;
+        let touchEndX = 0;
 
-        function showSlide(n) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
+        // Sample images - replace with your own
+        const slideImages = [
+            '1.png',
+            '2.png',
+            '3.png'
+        ];
 
-            if (n >= slides.length) currentSlideIndex = 0;
-            if (n < 0) currentSlideIndex = slides.length - 1;
+        // Slide titles
+        const slideTitles = [
+            'Proyek IoT & Robotika',
+            'Instalasi Sistem Elektrik',
+            'Pengembangan Embedded Systems'
+        ];
 
-            slides[currentSlideIndex].classList.add('active');
-            dots[currentSlideIndex].classList.add('active');
+        // Initialize 3D slider
+        function init3DSlider() {
+            const slider = document.getElementById('slider3d');
+            const dotsContainer = document.getElementById('sliderDots');
+
+            // Create slides
+            slideImages.forEach((img, index) => {
+                // Create slide element
+                const slide = document.createElement('div');
+                slide.className = 'slide-3d';
+                if (index === 0) slide.classList.add('active');
+                else if (index === 1) slide.classList.add('next');
+                else if (index === slideImages.length - 1) slide.classList.add('prev');
+
+                // Create image
+                const image = document.createElement('img');
+                image.className = 'slide-image';
+                image.src = img;
+                image.alt = slideTitles[index];
+
+                // Create reflection
+                const reflection = document.createElement('div');
+                reflection.className = 'slide-reflection';
+
+                slide.appendChild(image);
+                slide.appendChild(reflection);
+                slider.appendChild(slide);
+                slides3d.push(slide);
+
+                // Create dot
+                const dot = document.createElement('span');
+                dot.className = 'dot-3d';
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide3d(index));
+                dotsContainer.appendChild(dot);
+                dots3d.push(dot);
+            });
+
+            // Set initial positions
+            updateSlidePositions();
+
+            // Auto slide
+            setInterval(() => {
+                if (!isAnimating) {
+                    changeSlide3d(1);
+                }
+            }, 5000);
+
+            // Touch events for mobile
+            slider.addEventListener('touchstart', handleTouchStart, { passive: true });
+            slider.addEventListener('touchend', handleTouchEnd, { passive: true });
+
+            // Mouse drag support for desktop
+            let mouseDown = false;
+            let startX = 0;
+
+            slider.addEventListener('mousedown', (e) => {
+                mouseDown = true;
+                startX = e.clientX;
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (!mouseDown) return;
+                const diff = startX - e.clientX;
+                if (Math.abs(diff) > 50 && !isAnimating) {
+                    mouseDown = false;
+                    if (diff > 0) {
+                        changeSlide3d(1); // Swipe left
+                    } else {
+                        changeSlide3d(-1); // Swipe right
+                    }
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                mouseDown = false;
+            });
         }
 
-        function changeSlide(n) {
-            currentSlideIndex += n;
-            showSlide(currentSlideIndex);
+        function handleTouchStart(e) {
+            touchStartX = e.changedTouches[0].screenX;
         }
 
-        function currentSlide(n) {
-            currentSlideIndex = n;
-            showSlide(currentSlideIndex);
+        function handleTouchEnd(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
         }
 
-        // Auto slide
-        setInterval(() => {
-            currentSlideIndex++;
-            showSlide(currentSlideIndex);
-        }, 5000);
+        function handleSwipe() {
+            if (isAnimating) return;
+
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    changeSlide3d(1); // Swipe left
+                } else {
+                    changeSlide3d(-1); // Swipe right
+                }
+            }
+        }
+
+        function changeSlide3d(direction) {
+            if (isAnimating) return;
+
+            isAnimating = true;
+            const totalSlides = slides3d.length;
+
+            // Update current index
+            currentSlide3dIndex += direction;
+            if (currentSlide3dIndex >= totalSlides) currentSlide3dIndex = 0;
+            if (currentSlide3dIndex < 0) currentSlide3dIndex = totalSlides - 1;
+
+            updateSlidePositions();
+
+            // Reset animation flag after transition
+            setTimeout(() => {
+                isAnimating = false;
+            }, 800);
+        }
+
+        function goToSlide3d(index) {
+            if (isAnimating || index === currentSlide3dIndex) return;
+
+            isAnimating = true;
+            currentSlide3dIndex = index;
+            updateSlidePositions();
+
+            setTimeout(() => {
+                isAnimating = false;
+            }, 800);
+        }
+
+        function updateSlidePositions() {
+            const totalSlides = slides3d.length;
+
+            slides3d.forEach((slide, index) => {
+                // Reset all classes
+                slide.classList.remove('active', 'prev', 'next');
+
+                // Calculate position
+                let diff = index - currentSlide3dIndex;
+
+                // Handle wrap-around
+                if (diff > Math.floor(totalSlides / 2)) diff -= totalSlides;
+                if (diff < -Math.floor(totalSlides / 2)) diff += totalSlides;
+
+                // Apply classes based on position
+                if (diff === 0) {
+                    slide.classList.add('active');
+                } else if (diff === -1 || (diff === totalSlides - 1 && currentSlide3dIndex === 0)) {
+                    slide.classList.add('prev');
+                } else if (diff === 1 || (diff === -totalSlides + 1 && currentSlide3dIndex === totalSlides - 1)) {
+                    slide.classList.add('next');
+                }
+            });
+
+            // Update dots
+            dots3d.forEach((dot, index) => {
+                dot.classList.remove('active');
+                if (index === currentSlide3dIndex) {
+                    dot.classList.add('active');
+                }
+            });
+        }
 
         // Modal functions
         function openModal(imageSrc) {
@@ -1534,163 +1798,13 @@
             };
         }
 
-        document.addEventListener('DOMContentLoaded', loadProfileImage);
-
-        // Realistic 3D Scene with Subtle Animation
-        let scene, camera, renderer, particles, particleSystem;
-        let mouseX = 0, mouseY = 0;
-        let geometricObjects = [];
-        let time = 0;
-
-        function init3D() {
-            scene = new THREE.Scene();
-            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setClearColor(0x000000, 0);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-            document.getElementById('canvas-container').appendChild(renderer.domElement);
-
-            createRealisticParticleSystem();
-            createMinimalGeometry();
-
-            camera.position.z = 30;
-            document.addEventListener('mousemove', onDocumentMouseMove, false);
-        }
-
-        function createRealisticParticleSystem() {
-            const particleCount = 800;
-            const positions = new Float32Array(particleCount * 3);
-            const colors = new Float32Array(particleCount * 3);
-            const sizes = new Float32Array(particleCount);
-
-            for (let i = 0; i < particleCount; i++) {
-                const i3 = i * 3;
-
-                positions[i3] = (Math.random() - 0.5) * 150;
-                positions[i3 + 1] = (Math.random() - 0.5) * 150;
-                positions[i3 + 2] = (Math.random() - 0.5) * 150;
-
-                const grayValue = Math.random() * 0.5 + 0.5;
-                colors[i3] = grayValue;
-                colors[i3 + 1] = grayValue;
-                colors[i3 + 2] = grayValue;
-
-                sizes[i] = Math.random() * 2 + 0.5;
-            }
-
-            const particleGeometry = new THREE.BufferGeometry();
-            particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            particleGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-            particleGeometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
-
-            const particleMaterial = new THREE.ShaderMaterial({
-                uniforms: {
-                    time: { value: 0 }
-                },
-                vertexShader: `
-                    attribute float size;
-                    attribute vec3 color;
-                    varying vec3 vColor;
-                    uniform float time;
-                    
-                    void main() {
-                        vColor = color;
-                        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-                        
-                        mvPosition.y += sin(time * 0.5 + position.x * 0.01) * 2.0;
-                        
-                        gl_PointSize = size * (200.0 / -mvPosition.z);
-                        gl_Position = projectionMatrix * mvPosition;
-                    }
-                `,
-                fragmentShader: `
-                    varying vec3 vColor;
-                    
-                    void main() {
-                        float distanceToCenter = distance(gl_PointCoord, vec2(0.5, 0.5));
-                        float strength = 1.0 - (distanceToCenter * 2.0);
-                        strength = max(strength, 0.0);
-                        
-                        vec3 finalColor = vColor * strength;
-                        float alpha = strength * 0.4;
-                        
-                        gl_FragColor = vec4(finalColor, alpha);
-                    }
-                `,
-                transparent: true,
-                vertexColors: true
-            });
-
-            particleSystem = new THREE.Points(particleGeometry, particleMaterial);
-            scene.add(particleSystem);
-        }
-
-        function createMinimalGeometry() {
-            for (let i = 0; i < 5; i++) {
-                const geometry = new THREE.BufferGeometry();
-                const points = [];
-
-                const startX = (Math.random() - 0.5) * 100;
-                const startY = (Math.random() - 0.5) * 100;
-                const startZ = (Math.random() - 0.5) * 50;
-
-                points.push(new THREE.Vector3(startX, startY, startZ));
-                points.push(new THREE.Vector3(startX + (Math.random() - 0.5) * 50, startY + (Math.random() - 0.5) * 50, startZ + (Math.random() - 0.5) * 25));
-
-                geometry.setFromPoints(points);
-
-                const line = new THREE.Line(
-                    geometry,
-                    new THREE.LineBasicMaterial({
-                        color: new THREE.Color(0.8, 0.8, 0.8),
-                        transparent: true,
-                        opacity: 0.2
-                    })
-                );
-
-                line.userData = {
-                    rotationSpeed: Math.random() * 0.005 + 0.001
-                };
-
-                geometricObjects.push(line);
-                scene.add(line);
-            }
-
-            const ambientLight = new THREE.AmbientLight(0x404040, 0.6);
-            scene.add(ambientLight);
-        }
-
-        function onDocumentMouseMove(event) {
-            mouseX = (event.clientX - window.innerWidth / 2) * 0.002;
-            mouseY = (event.clientY - window.innerHeight / 2) * 0.002;
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            time += 0.01;
-
-            if (particleSystem && particleSystem.material.uniforms) {
-                particleSystem.material.uniforms.time.value = time;
-                particleSystem.rotation.y += 0.0005;
-            }
-
-            geometricObjects.forEach((obj) => {
-                if (obj.userData.rotationSpeed) {
-                    obj.rotation.x += obj.userData.rotationSpeed;
-                    obj.rotation.y += obj.userData.rotationSpeed * 0.5;
-                }
-            });
-
-            camera.position.x += (mouseX * 10 - camera.position.x) * 0.02;
-            camera.position.y += (-mouseY * 10 - camera.position.y) * 0.02;
-            camera.lookAt(scene.position);
-
-            renderer.render(scene, camera);
-        }
-
-        init3D();
-        animate();
+        document.addEventListener('DOMContentLoaded', function () {
+            init3DSlider();
+            loadProfileImage();
+            initMobileMenu();
+            initContactForm();
+            updateNavbar();
+        });
 
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1727,15 +1841,6 @@
         }
 
         window.addEventListener('scroll', updateNavbar);
-
-        // Window resize handler
-        window.addEventListener('resize', function () {
-            if (camera && renderer) {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            }
-        });
 
         // Intersection Observer for animations
         const observerOptions = {
@@ -1813,25 +1918,18 @@
             }
         }
 
-        // Initialize everything when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function () {
-            initMobileMenu();
-            initContactForm();
-            updateNavbar();
+        // Add hover effects
+        document.querySelectorAll('.skill-card, .timeline-item, .contact-item, .doc-card').forEach(card => {
+            card.addEventListener('mouseenter', function () {
+                this.style.transform = this.classList.contains('skill-card') || this.classList.contains('doc-card')
+                    ? 'translateY(-8px)'
+                    : this.classList.contains('timeline-item')
+                        ? 'translateX(5px)'
+                        : 'translateY(-5px)';
+            });
 
-            // Add hover effects
-            document.querySelectorAll('.skill-card, .timeline-item, .contact-item, .doc-card').forEach(card => {
-                card.addEventListener('mouseenter', function () {
-                    this.style.transform = this.classList.contains('skill-card') || this.classList.contains('doc-card')
-                        ? 'translateY(-8px)'
-                        : this.classList.contains('timeline-item')
-                            ? 'translateX(5px)'
-                            : 'translateY(-5px)';
-                });
-
-                card.addEventListener('mouseleave', function () {
-                    this.style.transform = 'translateY(0) translateX(0)';
-                });
+            card.addEventListener('mouseleave', function () {
+                this.style.transform = 'translateY(0) translateX(0)';
             });
         });
 
@@ -1847,6 +1945,24 @@
                 }
             }, 100);
         }
+
+        // Window resize handler
+        window.addEventListener('resize', function () {
+            // Adjust slider for mobile/desktop
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.slide-3d').forEach(slide => {
+                    slide.style.width = '300px';
+                    slide.style.height = '200px';
+                    slide.style.margin = '-100px 0 0 -150px';
+                });
+            } else {
+                document.querySelectorAll('.slide-3d').forEach(slide => {
+                    slide.style.width = '600px';
+                    slide.style.height = '400px';
+                    slide.style.margin = '-200px 0 0 -300px';
+                });
+            }
+        });
     </script>
 </body>
 

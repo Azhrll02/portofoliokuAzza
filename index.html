@@ -125,7 +125,7 @@
             overflow: hidden;
         }
 
-        /* Background Slider Fullscreen */
+        /* Background Slider Fullscreen - TANPA BLUR */
         .bg-slider-fullscreen {
             position: absolute;
             top: 0;
@@ -146,16 +146,18 @@
             background-repeat: no-repeat;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
-            transform: scale(1.1);
-            filter: brightness(0.7);
+            transform: scale(1.05);
+            /* Brightness normal untuk kejelasan */
+            filter: brightness(1);
         }
 
         .bg-slide.active {
             opacity: 1;
             transform: scale(1);
-            filter: brightness(0.8);
+            filter: brightness(1);
         }
 
+        /* Overlay gelap untuk meningkatkan kontras teks */
         .bg-slide::after {
             content: '';
             position: absolute;
@@ -164,9 +166,9 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg,
-                    rgba(26, 32, 44, 0.9) 0%,
-                    rgba(45, 55, 72, 0.85) 50%,
-                    rgba(74, 85, 104, 0.8) 100%);
+                    rgba(26, 32, 44, 0.85) 0%,
+                    rgba(45, 55, 72, 0.8) 50%,
+                    rgba(74, 85, 104, 0.75) 100%);
         }
 
         .hero-content {
@@ -176,13 +178,14 @@
             max-width: 900px;
             width: 90%;
             padding: 2.5rem;
-            /* Diperkecil dari 3rem */
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+            /* Sedikit lebih transparan */
             border-radius: 20px;
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            /* Blur hanya pada konten */
+            border: 1px solid rgba(255, 255, 255, 0.25);
             box-shadow:
-                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 20px 40px rgba(0, 0, 0, 0.4),
                 inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
@@ -192,7 +195,7 @@
             margin-bottom: 1.5rem;
             color: #ffffff;
             line-height: 1.2;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.7);
             letter-spacing: -0.5px;
         }
 
@@ -202,39 +205,33 @@
             color: #e2e8f0;
             font-weight: 500;
             letter-spacing: 0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .hero-content .description {
             font-size: 1.15rem;
             margin-bottom: 2.5rem;
-            /* Diperkecil dari 3rem */
-            color: #cbd5e1;
+            color: #e2e8f0;
             line-height: 1.8;
-            opacity: 0.95;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
         }
 
-        /* Tombol CTA yang lebih kecil */
+        /* Tombol CTA */
         .cta-button {
             display: inline-flex;
             align-items: center;
             gap: 0.75rem;
-            /* Diperkecil dari 1rem */
             padding: 1rem 2.5rem;
-            /* Diperkecil dari 1.25rem 3rem */
             background: linear-gradient(135deg, #ffffff, #f7fafc);
             color: var(--dark-color);
             text-decoration: none;
             border-radius: var(--border-radius);
             font-weight: 600;
-            /* Diubah dari 700 */
             font-size: 1rem;
-            /* Diperkecil dari 1.1rem */
             transition: var(--transition);
             box-shadow:
-                0 8px 25px rgba(0, 0, 0, 0.3),
-                /* Diperkecil dari 10px 30px */
+                0 8px 25px rgba(0, 0, 0, 0.4),
                 0 3px 0 rgba(255, 255, 255, 0.2);
-            /* Diperkecil dari 4px */
             border: 1px solid rgba(255, 255, 255, 0.3);
             position: relative;
             overflow: hidden;
@@ -257,20 +254,16 @@
 
         .cta-button:hover {
             transform: translateY(-3px);
-            /* Diperkecil dari -5px */
             box-shadow:
-                0 12px 35px rgba(0, 0, 0, 0.4),
-                /* Diperkecil dari 15px 40px */
+                0 12px 35px rgba(0, 0, 0, 0.5),
                 0 4px 0 rgba(255, 255, 255, 0.2);
-            /* Diperkecil dari 6px */
             background: linear-gradient(135deg, #ffffff, #edf2f7);
         }
 
-        /* Slider Controls - Ikon diperkecil */
+        /* Slider Controls */
         .slider-controls-fullscreen {
             position: absolute;
             bottom: 30px;
-            /* Diperkecil dari 40px */
             left: 0;
             right: 0;
             z-index: 3;
@@ -278,54 +271,42 @@
             flex-direction: column;
             align-items: center;
             gap: 15px;
-            /* Diperkecil dari 20px */
         }
 
         .slider-dots-fullscreen {
             display: flex;
-            gap: 10px;
-            /* Diperkecil dari 15px */
+            gap: 12px;
         }
 
         .dot-fullscreen {
             width: 12px;
-            /* Diperkecil dari 14px */
             height: 12px;
-            /* Diperkecil dari 14px */
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
             transition: var(--transition);
             border: 2px solid rgba(255, 255, 255, 0.5);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            /* Diperkecil */
         }
 
         .dot-fullscreen.active {
             background: white;
             transform: scale(1.2);
-            /* Diperkecil dari 1.3 */
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-            /* Diperkecil */
         }
 
         .slider-btns-fullscreen {
             display: flex;
             gap: 15px;
-            /* Diperkecil dari 20px */
         }
 
-        /* Tombol slider yang lebih kecil */
         .slider-btn-fullscreen {
             background: rgba(255, 255, 255, 0.15);
             border: 2px solid rgba(255, 255, 255, 0.3);
             color: white;
             font-size: 1.2rem;
-            /* Diperkecil dari 1.5rem */
             width: 45px;
-            /* Diperkecil dari 60px */
             height: 45px;
-            /* Diperkecil dari 60px */
             border-radius: 50%;
             cursor: pointer;
             transition: var(--transition);
@@ -334,15 +315,12 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            /* Diperkecil */
         }
 
         .slider-btn-fullscreen:hover {
             background: rgba(255, 255, 255, 0.25);
             transform: scale(1.05) translateY(-2px);
-            /* Diperkecil dari 1.1 */
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            /* Diperkecil */
         }
 
         /* Loading Fallback untuk Gambar */
@@ -354,7 +332,6 @@
         @media (max-width: 1024px) {
             .hero-content {
                 padding: 2rem;
-                /* Diperkecil dari 2.5rem */
                 max-width: 800px;
             }
 
@@ -368,11 +345,8 @@
 
             .slider-btn-fullscreen {
                 width: 40px;
-                /* Diperkecil */
                 height: 40px;
-                /* Diperkecil */
                 font-size: 1.1rem;
-                /* Diperkecil */
             }
         }
 
@@ -385,9 +359,8 @@
 
             .hero-content {
                 padding: 1.5rem;
-                /* Diperkecil dari 2rem */
                 margin: 1rem;
-                backdrop-filter: blur(15px);
+                backdrop-filter: blur(8px);
             }
 
             .hero-content h1 {
@@ -407,36 +380,27 @@
 
             .cta-button {
                 padding: 0.875rem 2rem;
-                /* Diperkecil */
                 font-size: 0.95rem;
-                /* Diperkecil */
             }
 
             .slider-controls-fullscreen {
                 bottom: 20px;
                 gap: 12px;
-                /* Diperkecil */
             }
 
             .slider-btn-fullscreen {
                 width: 38px;
-                /* Diperkecil */
                 height: 38px;
-                /* Diperkecil */
                 font-size: 1rem;
-                /* Diperkecil */
             }
 
             .dot-fullscreen {
                 width: 10px;
-                /* Diperkecil */
                 height: 10px;
-                /* Diperkecil */
             }
 
             .slider-btns-fullscreen {
                 gap: 12px;
-                /* Diperkecil */
             }
         }
 
@@ -456,25 +420,18 @@
 
             .slider-btn-fullscreen {
                 width: 35px;
-                /* Diperkecil */
                 height: 35px;
-                /* Diperkecil */
                 font-size: 0.9rem;
-                /* Diperkecil */
             }
 
             .dot-fullscreen {
                 width: 8px;
-                /* Diperkecil */
                 height: 8px;
-                /* Diperkecil */
             }
 
             .cta-button {
                 padding: 0.75rem 1.75rem;
-                /* Diperkecil */
                 font-size: 0.9rem;
-                /* Diperkecil */
             }
         }
 

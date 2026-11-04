@@ -19,7 +19,7 @@
             --gray-light: #edf2f7;
             --gray-bg: #f7fafc;
             --border-color: #e2e8f0;
-            --border-radius: 8px;
+            --border-radius: 12px;
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
             --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -166,9 +166,9 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg,
-                    rgba(26, 32, 44, 0.85) 0%,
-                    rgba(45, 55, 72, 0.8) 50%,
-                    rgba(74, 85, 104, 0.75) 100%);
+                    rgba(26, 32, 44, 0.62) 0%,
+                    rgba(45, 55, 72, 0.54) 50%,
+                    rgba(74, 85, 104, 0.46) 100%);
         }
 
         .hero-content {
@@ -568,46 +568,60 @@
         .profile-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            gap: 0.75rem;
             margin-top: 2rem;
         }
 
         .stat-item {
+            position: relative;
+            display: flex;
+            min-height: 104px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.2rem;
+            overflow: hidden;
             text-align: center;
-            padding: 1.25rem 0.75rem;
-            background: var(--gray-bg);
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-            border: 1px solid var(--border-color);
+            padding: 1rem 0.55rem;
+            border: 1px solid rgba(255, 255, 255, 0.78);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.68);
+            box-shadow: 0 8px 22px rgba(26, 32, 44, 0.07), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease;
+        }
+
+        .stat-item::before {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 34px;
+            height: 2px;
+            border-radius: 0 0 3px 3px;
+            background: linear-gradient(90deg, transparent, rgba(45, 55, 72, 0.56), transparent);
+            content: '';
+            transform: translateX(-50%);
         }
 
         .stat-item:hover {
-            background: var(--primary-dark);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            background: rgba(255, 255, 255, 0.88);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(26, 32, 44, 0.11), inset 0 1px 0 rgba(255, 255, 255, 0.92);
         }
 
         .stat-number {
             display: block;
-            font-size: 1.75rem;
+            color: var(--primary-dark);
+            font-size: clamp(1.45rem, 3vw, 1.8rem);
             font-weight: 700;
-            margin-bottom: 0.25rem;
-            color: var(--dark-color);
-        }
-
-        .stat-item:hover .stat-number {
-            color: white;
+            line-height: 1.15;
+            font-variant-numeric: tabular-nums;
         }
 
         .stat-label {
-            font-size: 0.85rem;
-            font-weight: 500;
             color: var(--secondary-color);
-        }
-
-        .stat-item:hover .stat-label {
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.78rem;
+            font-weight: 500;
+            line-height: 1.35;
         }
 
         .about-text {
@@ -1381,31 +1395,31 @@
 
         #about {
             background-image:
-                linear-gradient(135deg, rgba(247, 250, 252, 0.62), rgba(255, 255, 255, 0.48)),
+                linear-gradient(135deg, rgba(247, 250, 252, 0.38), rgba(255, 255, 255, 0.28)),
                 url('assets/images/about.jpg');
         }
 
         #skills {
             background-image:
-                linear-gradient(135deg, rgba(247, 250, 252, 0.62), rgba(255, 255, 255, 0.48)),
+                linear-gradient(135deg, rgba(247, 250, 252, 0.38), rgba(255, 255, 255, 0.28)),
                 url('assets/images/skills.png');
         }
 
         #experience {
             background-image:
-                linear-gradient(135deg, rgba(247, 250, 252, 0.64), rgba(255, 255, 255, 0.5)),
+                linear-gradient(135deg, rgba(247, 250, 252, 0.4), rgba(255, 255, 255, 0.3)),
                 url('assets/images/experience.jpg');
         }
 
         #documentation {
             background-image:
-                linear-gradient(135deg, rgba(247, 250, 252, 0.62), rgba(255, 255, 255, 0.48)),
+                linear-gradient(135deg, rgba(247, 250, 252, 0.38), rgba(255, 255, 255, 0.28)),
                 url('assets/images/documentation.png');
         }
 
         #contact {
             background-image:
-                linear-gradient(135deg, rgba(247, 250, 252, 0.62), rgba(255, 255, 255, 0.48)),
+                linear-gradient(135deg, rgba(247, 250, 252, 0.38), rgba(255, 255, 255, 0.28)),
                 url('assets/images/about.jpg');
         }
 
@@ -1418,25 +1432,26 @@
         #contact .contact-item,
         #contact .maps-container,
         #contact .invitation-form {
-            background: rgba(255, 255, 255, 0.76);
-            border-color: rgba(255, 255, 255, 0.72);
-            box-shadow: 0 12px 32px rgba(26, 32, 44, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.72);
-            -webkit-backdrop-filter: blur(14px) saturate(135%);
-            backdrop-filter: blur(14px) saturate(135%);
+            background: rgba(255, 255, 255, 0.68);
+            border-color: rgba(255, 255, 255, 0.78);
+            border-radius: 18px;
+            box-shadow: 0 14px 34px rgba(26, 32, 44, 0.09), inset 0 1px 0 rgba(255, 255, 255, 0.86);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            backdrop-filter: blur(16px) saturate(140%);
         }
 
         #about .about-text {
             padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.72);
-            border-radius: 16px;
-            background: rgba(255, 255, 255, 0.72);
-            box-shadow: 0 12px 32px rgba(26, 32, 44, 0.1);
-            -webkit-backdrop-filter: blur(14px) saturate(135%);
-            backdrop-filter: blur(14px) saturate(135%);
+            border: 1px solid rgba(255, 255, 255, 0.78);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.66);
+            box-shadow: 0 14px 34px rgba(26, 32, 44, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.84);
+            -webkit-backdrop-filter: blur(16px) saturate(140%);
+            backdrop-filter: blur(16px) saturate(140%);
         }
 
         #contact .maps-header {
-            background: rgba(247, 250, 252, 0.72);
+            background: rgba(247, 250, 252, 0.64);
             -webkit-backdrop-filter: blur(14px);
             backdrop-filter: blur(14px);
         }
@@ -1528,7 +1543,7 @@
 
         .footer {
             background:
-                linear-gradient(rgba(26, 32, 44, 0.88), rgba(26, 32, 44, 0.94)),
+                linear-gradient(rgba(26, 32, 44, 0.78), rgba(26, 32, 44, 0.86)),
                 url('assets/images/footer.jpg')
                 center / cover no-repeat;
         }
@@ -1623,15 +1638,15 @@
                     </div>
                     <div class="profile-stats">
                         <div class="stat-item">
-                            <span class="stat-number">5+</span>
+                            <span class="stat-number" data-target="5" data-suffix="+">5+</span>
                             <span class="stat-label">Tahun Pengalaman</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">30+</span>
+                            <span class="stat-number" data-target="30" data-suffix="+">30+</span>
                             <span class="stat-label">Proyek Selesai</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">3</span>
+                            <span class="stat-number" data-target="3" data-suffix="">3</span>
                             <span class="stat-label">Sertifikasi</span>
                         </div>
                     </div>
@@ -2386,6 +2401,54 @@
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
+
+        // Count profile statistics when they enter the viewport.
+        const statNumbers = document.querySelectorAll('.stat-number[data-target]');
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function animateStatNumber(element) {
+            const target = Number(element.dataset.target);
+            const suffix = element.dataset.suffix || '';
+            const duration = 1400;
+
+            if (reducedMotion) {
+                element.textContent = `${target}${suffix}`;
+                return;
+            }
+
+            const startTime = performance.now();
+            element.textContent = `0${suffix}`;
+
+            function updateNumber(now) {
+                const progress = Math.min((now - startTime) / duration, 1);
+                const easedProgress = 1 - Math.pow(1 - progress, 3);
+                const currentValue = Math.round(target * easedProgress);
+
+                element.textContent = `${currentValue}${suffix}`;
+                if (progress < 1) {
+                    requestAnimationFrame(updateNumber);
+                }
+            }
+
+            requestAnimationFrame(updateNumber);
+        }
+
+        if (reducedMotion) {
+            statNumbers.forEach(animateStatNumber);
+        } else if ('IntersectionObserver' in window) {
+            const statsObserver = new IntersectionObserver((entries, currentObserver) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStatNumber(entry.target);
+                        currentObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.6 });
+
+            statNumbers.forEach(number => statsObserver.observe(number));
+        } else {
+            statNumbers.forEach(animateStatNumber);
+        }
 
         // Map loading
         setTimeout(() => {

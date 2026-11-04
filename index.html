@@ -450,11 +450,56 @@
             padding: 0 2rem;
         }
 
+        .section-heading-panel {
+            position: relative;
+            width: min(100%, 860px);
+            margin: 0 auto 4rem;
+            padding: 1.65rem 2rem 1.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.74);
+            border-radius: 24px;
+            background:
+                radial-gradient(ellipse at 50% -35%, rgba(255, 255, 255, 0.94), transparent 68%),
+                linear-gradient(145deg, rgba(255, 255, 255, 0.52), rgba(247, 250, 252, 0.34));
+            box-shadow:
+                0 18px 48px rgba(26, 32, 44, 0.065),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9),
+                inset 0 -1px 0 rgba(255, 255, 255, 0.32);
+            -webkit-backdrop-filter: blur(24px) saturate(150%);
+            backdrop-filter: blur(24px) saturate(150%);
+            isolation: isolate;
+        }
+
+        .section-heading-panel::before {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 88px;
+            height: 2px;
+            border-radius: 0 0 3px 3px;
+            background: linear-gradient(90deg, transparent, rgba(45, 55, 72, 0.52), transparent);
+            content: '';
+            transform: translateX(-50%);
+        }
+
+        .section-heading-panel::after {
+            position: absolute;
+            right: -70px;
+            bottom: -125px;
+            z-index: -1;
+            width: 240px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            content: '';
+            filter: blur(38px);
+        }
+
         .section-title {
             font-size: 2.5rem;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 1rem;
+            margin: 0;
             color: var(--dark-color);
             position: relative;
         }
@@ -462,23 +507,22 @@
         .section-title::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -0.75rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: var(--primary-dark);
-            border-radius: 2px;
+            width: 38px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-dark), transparent);
+            border-radius: 3px;
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 1.1rem;
             color: var(--secondary-color);
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 680px;
+            margin: 1.35rem auto 0;
+            padding: 0;
             line-height: 1.6;
         }
 
@@ -641,28 +685,22 @@
 
         /* Experience Section */
         .experience-timeline {
-            position: relative;
-            padding: 2rem 0;
-            max-width: 800px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+            width: 100%;
             margin: 0 auto;
         }
 
         .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--primary-dark), transparent);
+            display: none;
         }
 
         .timeline-item {
             background: white;
-            padding: 2.5rem;
+            padding: 2rem;
             border-radius: var(--border-radius);
-            margin-bottom: 2rem;
-            margin-left: 70px;
+            margin: 0;
             box-shadow: var(--shadow-md);
             position: relative;
             border: 1px solid var(--border-color);
@@ -670,21 +708,12 @@
         }
 
         .timeline-item:hover {
-            transform: translateX(5px);
+            transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
         }
 
         .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -55px;
-            top: 32px;
-            width: 16px;
-            height: 16px;
-            background: var(--primary-dark);
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 0 0 4px var(--primary-dark), 0 0 0 8px rgba(45, 55, 72, 0.1);
+            display: none;
         }
 
         .timeline-item h3 {
@@ -715,6 +744,127 @@
 
         .timeline-item p {
             color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        .timeline-item .job-responsibilities {
+            display: grid;
+            gap: 0.6rem;
+            margin: 1rem 0 0;
+            padding-left: 1.25rem;
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        .experience-summary,
+        .supporting-projects {
+            margin-top: 4rem;
+        }
+
+        .experience-summary h3,
+        .supporting-projects h3 {
+            position: relative;
+            width: min(100%, 860px);
+            margin: 0 auto 1.5rem;
+            padding: 1rem 1.5rem 1rem 1.8rem;
+            color: var(--dark-color);
+            font-size: 1.6rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.68);
+            border-radius: 15px;
+            background: linear-gradient(105deg, rgba(255, 255, 255, 0.7), rgba(247, 250, 252, 0.38));
+            box-shadow: 0 12px 32px rgba(26, 32, 44, 0.055), inset 0 1px 0 rgba(255, 255, 255, 0.82);
+            -webkit-backdrop-filter: blur(20px) saturate(145%);
+            backdrop-filter: blur(20px) saturate(145%);
+        }
+
+        .experience-summary h3::before,
+        .supporting-projects h3::before {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 3px;
+            height: 56%;
+            border-radius: 0 3px 3px 0;
+            background: linear-gradient(180deg, rgba(45, 55, 72, 0.18), rgba(45, 55, 72, 0.62), rgba(45, 55, 72, 0.18));
+            content: '';
+            transform: translateY(-50%);
+        }
+
+        .experience-table-wrap {
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.76);
+            box-shadow: var(--shadow-md);
+            -webkit-backdrop-filter: blur(14px) saturate(135%);
+            backdrop-filter: blur(14px) saturate(135%);
+        }
+
+        .experience-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        .experience-table th,
+        .experience-table td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.82);
+        }
+
+        .experience-table th {
+            background: rgba(237, 242, 247, 0.78);
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .experience-table td {
+            color: var(--secondary-color);
+        }
+
+        .experience-table td:nth-child(2) {
+            color: var(--dark-color);
+            font-weight: 600;
+        }
+
+        .experience-table tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .supporting-project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .supporting-project-card {
+            min-height: 150px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.76);
+            box-shadow: var(--shadow-md);
+            -webkit-backdrop-filter: blur(14px) saturate(135%);
+            backdrop-filter: blur(14px) saturate(135%);
+            transition: var(--transition);
+        }
+
+        .supporting-project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .supporting-project-card h4 {
+            margin-bottom: 0.65rem;
+            color: var(--dark-color);
+            font-size: 1.05rem;
+        }
+
+        .supporting-project-card p {
+            color: var(--secondary-color);
+            font-size: 0.94rem;
             line-height: 1.6;
         }
 
@@ -909,6 +1059,12 @@
             overflow: hidden;
         }
 
+        .contact-link {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+        }
+
         .contact-item::before {
             content: '';
             position: absolute;
@@ -1057,6 +1213,11 @@
                 font-size: 2rem;
             }
 
+            .section-heading-panel {
+                margin-bottom: 3rem;
+                padding: 1.4rem 1.25rem 1.3rem;
+            }
+
             .skills-grid {
                 grid-template-columns: 1fr;
             }
@@ -1078,15 +1239,12 @@
             }
 
             .timeline-item {
-                margin-left: 40px;
+                padding: 1.5rem;
             }
 
-            .experience-timeline::before {
-                left: 15px;
-            }
-
-            .timeline-item::before {
-                left: -25px;
+            .experience-timeline {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
         }
 
@@ -1208,6 +1366,193 @@
             padding-top: 1rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        /* Photo backgrounds for each portfolio section */
+        #about,
+        #skills,
+        #experience,
+        #documentation,
+        #contact {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        #about {
+            background-image:
+                linear-gradient(135deg, rgba(247, 250, 252, 0.62), rgba(255, 255, 255, 0.48)),
+                url('../Downloads/WhatsApp%20Image%202026-08-06%20at%2023.16.52.jpeg');
+        }
+
+        #skills {
+            background-image:
+                linear-gradient(135deg, rgba(247, 250, 252, 0.62), rgba(255, 255, 255, 0.48)),
+                url('../Downloads/instalasipplst.png');
+        }
+
+        #experience {
+            background-image:
+                linear-gradient(135deg, rgba(247, 250, 252, 0.64), rgba(255, 255, 255, 0.5)),
+                url('../Downloads/WhatsApp%20Image%202026-10-22%20at%2013.01.33.jpeg');
+        }
+
+        #documentation {
+            background-image:
+                linear-gradient(135deg, rgba(247, 250, 252, 0.62), rgba(255, 255, 255, 0.48)),
+                url('../Downloads/perahu.png');
+        }
+
+        #contact {
+            background-image:
+                linear-gradient(135deg, rgba(247, 250, 252, 0.62), rgba(255, 255, 255, 0.48)),
+                url('../Downloads/WhatsApp%20Image%202026-08-06%20at%2023.16.52.jpeg');
+        }
+
+        #about .profile-card,
+        #about .stat-item,
+        #skills .skill-card,
+        #experience .timeline-item,
+        #documentation .doc-card,
+        #documentation .doc-info,
+        #contact .contact-item,
+        #contact .maps-container,
+        #contact .invitation-form {
+            background: rgba(255, 255, 255, 0.76);
+            border-color: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 12px 32px rgba(26, 32, 44, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.72);
+            -webkit-backdrop-filter: blur(14px) saturate(135%);
+            backdrop-filter: blur(14px) saturate(135%);
+        }
+
+        #about .about-text {
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.72);
+            box-shadow: 0 12px 32px rgba(26, 32, 44, 0.1);
+            -webkit-backdrop-filter: blur(14px) saturate(135%);
+            backdrop-filter: blur(14px) saturate(135%);
+        }
+
+        #contact .maps-header {
+            background: rgba(247, 250, 252, 0.72);
+            -webkit-backdrop-filter: blur(14px);
+            backdrop-filter: blur(14px);
+        }
+
+        .invitation-form {
+            grid-column: 1 / -1;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .invitation-form h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+            font-size: 1.4rem;
+        }
+
+        .invitation-form > p {
+            margin-bottom: 1.75rem;
+            color: var(--secondary-color);
+        }
+
+        .invitation-fields {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.25rem;
+        }
+
+        .invitation-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .invitation-field label {
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .invitation-field input {
+            width: 100%;
+            min-height: 48px;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(113, 128, 150, 0.35);
+            border-radius: var(--border-radius);
+            background: rgba(255, 255, 255, 0.76);
+            color: var(--dark-color);
+            font: inherit;
+            transition: var(--transition);
+        }
+
+        .invitation-field input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(74, 85, 104, 0.16);
+            background: rgba(255, 255, 255, 0.94);
+        }
+
+        .invitation-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            margin-top: 1.5rem;
+            padding: 0.9rem 1.5rem;
+            border: 0;
+            border-radius: var(--border-radius);
+            background: #128c7e;
+            color: #fff;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .invitation-submit:hover {
+            background: #0f766e;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .invitation-note {
+            margin-top: 0.75rem;
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+        }
+
+        .footer {
+            background:
+                linear-gradient(rgba(26, 32, 44, 0.88), rgba(26, 32, 44, 0.94)),
+                url('../Downloads/WhatsApp%20Image%202026-10-22%20at%2013.54.46.jpeg')
+                center / cover no-repeat;
+        }
+
+        @media (max-width: 768px) {
+            #about,
+            #skills,
+            #experience,
+            #documentation,
+            #contact {
+                background-attachment: scroll;
+            }
+
+            .invitation-form {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .invitation-fields {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
 
@@ -1267,8 +1612,10 @@
 
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">Tentang Saya</h2>
-            <p class="section-subtitle">Mengenal lebih dekat profil profesional dan pencapaian saya</p>
+            <div class="section-heading-panel">
+                <h2 class="section-title">Tentang Saya</h2>
+                <p class="section-subtitle">Mengenal lebih dekat profil profesional dan pencapaian saya</p>
+            </div>
             <div class="about-content">
                 <div class="profile-card">
                     <div class="profile-image">
@@ -1304,8 +1651,10 @@
 
     <section id="skills" class="section">
         <div class="container">
-            <h2 class="section-title">Keahlian Profesional</h2>
-            <p class="section-subtitle">Kompetensi teknis dan manajerial yang telah teruji dalam berbagai proyek</p>
+            <div class="section-heading-panel">
+                <h2 class="section-title">Keahlian Profesional</h2>
+                <p class="section-subtitle">Kompetensi teknis dan manajerial yang telah teruji dalam berbagai proyek</p>
+            </div>
             <div class="skills-grid">
                 <div class="skill-card fade-in">
                     <h3><span class="skill-icon">📐</span>Computer-Aided Design</h3>
@@ -1373,46 +1722,147 @@
 
     <section id="experience" class="section">
         <div class="container">
-            <h2 class="section-title">Pengalaman Profesional</h2>
-            <p class="section-subtitle">Perjalanan karir yang menunjukkan pertumbuhan dan pencapaian konsisten</p>
+            <div class="section-heading-panel">
+                <h2 class="section-title">Pengalaman Profesional</h2>
+                <p class="section-subtitle">Pengalaman kerja di bidang administrasi proyek, kelistrikan, IT, dan pengembangan IoT</p>
+            </div>
             <div class="experience-timeline">
-                <!-- Tambahan Pengalaman Kerja di PT Nusapala Berkasa Autonomos - TELAH DIPERBAIKI -->
+                <div class="timeline-item fade-in">
+                    <h3>Freelance</h3>
+                    <div class="company">Freelance</div>
+                    <div class="period">Bidang: IT, IoT, Engineering &amp; Digital Services</div>
+                    <ul class="job-responsibilities">
+                        <li>Menyediakan layanan pembuatan dan pengembangan proyek Internet of Things (IoT).</li>
+                        <li>Mengembangkan website, aplikasi, dan sistem elektronika sesuai kebutuhan klien.</li>
+                        <li>Merancang serta mengembangkan perangkat berbasis mikrokontroler dan embedded system.</li>
+                        <li>Menyusun laporan, presentasi, dan dokumen akademik.</li>
+                        <li>Membantu UMKM dalam pembuatan website dan desain digital.</li>
+                        <li>Membantu pengelolaan administrasi usaha dan digitalisasi bisnis.</li>
+                    </ul>
+                </div>
+                <div class="timeline-item fade-in">
+                    <h3>Engineer</h3>
+                    <div class="company">PT SBS</div>
+                    <div class="period">Oktober 2026</div>
+                    <ul class="job-responsibilities">
+                        <li>Membuat dan merevisi gambar teknik elektrikal menggunakan AutoCAD.</li>
+                        <li>Melakukan instalasi peralatan elektrikal.</li>
+                        <li>Melakukan pemeliharaan dan troubleshooting peralatan elektrikal.</li>
+                        <li>Memastikan pekerjaan sesuai dengan spesifikasi teknis.</li>
+                        <li>Memastikan pelaksanaan pekerjaan memenuhi standar keselamatan dan kesehatan kerja (K3).</li>
+                    </ul>
+                </div>
                 <div class="timeline-item fade-in">
                     <h3>IT Support</h3>
-                    <div class="company">PT Nusapala Berkasa Autonomos</div>
-                    <div class="period">Maret 2023 - Februari 2024</div>
-                    <p>Bertanggung jawab dalam memberikan dukungan teknis untuk software dan hardware, melakukan
-                        troubleshooting sistem IT, mengelola maintenance perangkat, serta memberikan solusi teknis untuk
-                        meningkatkan efisiensi operasional perusahaan. Berpengalaman dalam instalasi, konfigurasi, dan
-                        pemeliharaan sistem komputer dan jaringan.</p>
-                </div>
-
-                <div class="timeline-item fade-in">
-                    <h3>Freelance IoT & Automation Engineer</h3>
-                    <div class="company">AZiot</div>
-                    <div class="period">Sekarang</div>
-                    <p>Berpengalaman merancang dan mengembangkan perangkat IoT sesuai kebutuhan, mulai dari integrasi
-                        berbagai sensor, pemrograman mikrokontroler, hingga implementasi sistem monitoring berbasis
-                        cloud untuk pemantauan data secara real-time. Terbiasa melakukan analisis kebutuhan sistem,
-                        pengujian, serta troubleshooting untuk memastikan perangkat berjalan stabil dan andal di
-                        lingkungan operasional. Selain itu, menguasai pemrograman dan pengoperasian PLC Omron untuk
-                        aplikasi otomasi industri, termasuk integrasi PLC dengan perangkat IoT guna meningkatkan
-                        efisiensi, kontrol, dan keandalan sistem.</p>
+                    <div class="company">PT Nusapala</div>
+                    <div class="period">2025–Januari 2026</div>
+                    <ul class="job-responsibilities">
+                        <li>Menangani instalasi dan pemeliharaan perangkat lunak (software) maupun perangkat keras (hardware).</li>
+                        <li>Melakukan troubleshooting pada sistem parkir otomatis (Automatic Parking System) dan infrastruktur pendukung.</li>
+                        <li>Melakukan monitoring jaringan untuk memastikan konektivitas dan operasional sistem berjalan optimal.</li>
+                        <li>Menganalisis serta menyelesaikan kendala teknis secara cepat dan tepat.</li>
+                        <li>Memberikan dukungan teknis kepada tim operasional.</li>
+                        <li>Memastikan sistem berjalan dengan baik dan meminimalkan downtime.</li>
+                    </ul>
                 </div>
                 <div class="timeline-item fade-in">
                     <h3>Supervisor Elektrik</h3>
-                    <div class="company">CV AM Elektronika</div>
-                    <div class="period">Januari 2020 - Maret 2021</div>
-                    <p>Memimpin tim dalam instalasi, perawatan, dan perbaikan sistem kelistrikan kompleks. Berhasil
-                        meningkatkan efisiensi kerja sebesar 20% dan efisiensi operasional 25% melalui implementasi
-                        sistem koordinasi tim yang efektif dan optimalisasi workflow.</p>
+                    <div class="company">CV AM Elektrik</div>
+                    <div class="period">2020–2021</div>
+                    <ul class="job-responsibilities">
+                        <li>Mengawasi proses instalasi dan perawatan perangkat elektronik.</li>
+                        <li>Memastikan pekerjaan sesuai dengan standar kualitas dan keselamatan kerja.</li>
+                        <li>Memimpin dan mengoordinasikan tim teknisi di lapangan.</li>
+                        <li>Melakukan pengecekan dan pemeriksaan sistem elektrikal.</li>
+                        <li>Memastikan pelaksanaan proyek berjalan sesuai jadwal.</li>
+                        <li>Mengawasi hasil pekerjaan untuk memastikan kualitas dan target proyek tercapai.</li>
+                    </ul>
                 </div>
                 <div class="timeline-item fade-in">
-                    <h3>Admin Proyek</h3>
-                    <div class="company">PT De Nature Indonesia</div>
-                    <div class="period">November 2019 - Juli 2020</div>
-                    <p>Mengelola administrasi proyek, menyusun laporan, dan mendukung koordinasi antar tim agar
-                        pekerjaan berjalan sesuai target.</p>
+                    <h3>Admin Project</h3>
+                    <div class="company">PT De Nature</div>
+                    <div class="period">2019–2020</div>
+                    <ul class="job-responsibilities">
+                        <li>Mengelola administrasi proyek secara terstruktur.</li>
+                        <li>Menyusun laporan kegiatan dan perkembangan proyek.</li>
+                        <li>Melakukan pengarsipan dan pengelolaan dokumen proyek.</li>
+                        <li>Melakukan koordinasi antaranggota tim untuk mendukung kelancaran operasional proyek.</li>
+                        <li>Memastikan data proyek terdokumentasi dengan baik.</li>
+                        <li>Membantu proses monitoring progres pekerjaan.</li>
+                        <li>Memastikan pekerjaan administrasi berjalan sesuai target dan kebutuhan proyek.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-summary">
+                <h3>Ringkasan Riwayat Pekerjaan</h3>
+                <div class="experience-table-wrap">
+                    <table class="experience-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Periode</th>
+                                <th scope="col">Perusahaan</th>
+                                <th scope="col">Posisi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tidak dicantumkan</td>
+                                <td>Freelance</td>
+                                <td>IT, IoT, Engineering &amp; Digital Services</td>
+                            </tr>
+                            <tr>
+                                <td>Oktober 2026</td>
+                                <td>PT SBS</td>
+                                <td>Engineer</td>
+                            </tr>
+                            <tr>
+                                <td>2025–Januari 2026</td>
+                                <td>PT Nusapala</td>
+                                <td>IT Support</td>
+                            </tr>
+                            <tr>
+                                <td>2020–2021</td>
+                                <td>CV AM Elektrik</td>
+                                <td>Supervisor Elektrik</td>
+                            </tr>
+                            <tr>
+                                <td>2019–2020</td>
+                                <td>PT De Nature</td>
+                                <td>Admin Project</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="supporting-projects">
+                <h3>Pengalaman Proyek Pendukung</h3>
+                <div class="supporting-project-grid">
+                    <article class="supporting-project-card fade-in">
+                        <h4>Smart Warehouse Management System</h4>
+                        <p>Sistem pencatatan barang masuk dan keluar berbasis RFID, ESP32, sensor berat, kamera, database, dan dashboard monitoring.</p>
+                    </article>
+                    <article class="supporting-project-card fade-in">
+                        <h4>IoT Solar Power Monitoring</h4>
+                        <p>Sistem monitoring arus dan performa pembangkit listrik tenaga surya.</p>
+                    </article>
+                    <article class="supporting-project-card fade-in">
+                        <h4>Automatic Fish Feeder</h4>
+                        <p>Sistem pemberian pakan ikan otomatis berbasis mikrokontroler.</p>
+                    </article>
+                    <article class="supporting-project-card fade-in">
+                        <h4>Smart Home with Computer Vision</h4>
+                        <p>Sistem otomasi rumah dengan integrasi computer vision.</p>
+                    </article>
+                    <article class="supporting-project-card fade-in">
+                        <h4>IoT Mushroom House Control</h4>
+                        <p>Sistem monitoring dan pengendalian kondisi lingkungan kumbung jamur.</p>
+                    </article>
+                    <article class="supporting-project-card fade-in">
+                        <h4>Smart Tambak Udang</h4>
+                        <p>Sistem monitoring kualitas air dan otomasi perangkat tambak berbasis IoT.</p>
+                    </article>
                 </div>
             </div>
         </div>
@@ -1420,8 +1870,10 @@
 
     <section id="documentation" class="documentation-section section">
         <div class="container">
-            <h2 class="section-title">Dokumentasi Proyek</h2>
-            <p class="section-subtitle">Galeri foto dokumentasi dari berbagai proyek yang telah dikerjakan</p>
+            <div class="section-heading-panel">
+                <h2 class="section-title">Dokumentasi Proyek</h2>
+                <p class="section-subtitle">Galeri foto dokumentasi dari berbagai proyek yang telah dikerjakan</p>
+            </div>
             <div class="documentation-grid">
                 <div class="doc-card fade-in" onclick="openModal('a.png')">
                     <div class="doc-image">
@@ -1541,15 +1993,29 @@
 
     <section id="contact" class="contact-section section">
         <div class="container">
-            <h2 class="section-title">Hubungi Saya</h2>
-            <p class="section-subtitle">Mari berdiskusi tentang peluang kerjasama dan proyek yang menarik</p>
+            <div class="section-heading-panel">
+                <h2 class="section-title">Hubungi Saya</h2>
+                <p class="section-subtitle">Mari berdiskusi tentang peluang kerjasama dan proyek yang menarik</p>
+            </div>
             <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item fade-in" data-contact="email">
+                    <a class="contact-item contact-link fade-in" href="mailto:azzamangali70@gmail.com">
                         <div class="contact-item-icon">📧</div>
                         <h3>Email</h3>
                         <p>azzamangali70@gmail.com</p>
-                    </div>
+                    </a>
+                    <a class="contact-item contact-link fade-in"
+                        href="https://website-internet-aziot.vercel.app/" target="_blank" rel="noopener noreferrer">
+                        <div class="contact-item-icon">🌐</div>
+                        <h3>Website AZIOT</h3>
+                        <p>Layanan pengembangan website, IoT, dan teknologi.</p>
+                    </a>
+                    <a class="contact-item contact-link fade-in"
+                        href="https://www.tiktok.com/@jokiskripsiatautugas" target="_blank" rel="noopener noreferrer">
+                        <div class="contact-item-icon">🎵</div>
+                        <h3>TikTok AZIOT</h3>
+                        <p>Media promosi dan dokumentasi aktivitas layanan serta proyek.</p>
+                    </a>
                     <div class="contact-item fade-in" data-contact="phone">
                         <div class="contact-item-icon">📱</div>
                         <h3>Telepon</h3>
@@ -1558,7 +2024,7 @@
                     <div class="contact-item fade-in">
                         <div class="contact-item-icon">📍</div>
                         <h3>Lokasi</h3>
-                        <p>Tanjung Duren Utara<br>Jakarta Barat, Indonesia</p>
+                        <p>HQ29+864, Cikrisik, Cipari, Kec. Cipari<br>Kabupaten Cilacap, Jawa Tengah 53262</p>
                     </div>
                     <div class="contact-item fade-in">
                         <div class="contact-item-icon">🎓</div>
@@ -1577,10 +2043,40 @@
                         <div class="spinner"></div>
                     </div>
                     <iframe id="location-map" class="map-frame"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15865.542891738154!2d106.78392425!3d-6.1754871!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f64c5e8866a9%3A0x3c891379e6c98a3b!2sTanjung%20Duren%20Utara%2C%20Grogol%20petamburan%2C%20Jakarta%20Barat%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sen!2sid!4v1709123456789!5m2!1sen!2sid"
+                        src="https://maps.google.com/maps?q=HQ29%2B864%2C%20Cikrisik%2C%20Cipari%2C%20Kec.%20Cipari%2C%20Kabupaten%20Cilacap%2C%20Jawa%20Tengah%2053262&t=&z=15&ie=UTF8&iwloc=&output=embed"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
+                <form class="invitation-form fade-in" id="invitationForm">
+                    <h3>📨 Undang Saya</h3>
+                    <p>Isi detail undangan, lalu lanjutkan pengiriman pesan melalui WhatsApp.</p>
+                    <div class="invitation-fields">
+                        <div class="invitation-field">
+                            <label for="invitationName">Nama Anda</label>
+                            <input id="invitationName" name="name" type="text" autocomplete="name" maxlength="100"
+                                placeholder="Contoh: Budi Santoso" required>
+                        </div>
+                        <div class="invitation-field">
+                            <label for="invitationCompany">Nama Perusahaan</label>
+                            <input id="invitationCompany" name="company" type="text" autocomplete="organization"
+                                maxlength="120" placeholder="Contoh: PT Maju Bersama" required>
+                        </div>
+                        <div class="invitation-field">
+                            <label for="invitationRole">Undangan sebagai apa?</label>
+                            <input id="invitationRole" name="role" type="text" maxlength="120"
+                                placeholder="Contoh: Technical Project Engineer" required>
+                        </div>
+                        <div class="invitation-field">
+                            <label for="invitationEvent">Nama acara atau proyek</label>
+                            <input id="invitationEvent" name="event" type="text" maxlength="120"
+                                placeholder="Contoh: Diskusi proyek otomasi" required>
+                        </div>
+                    </div>
+                    <button class="invitation-submit" type="submit">
+                        <span>💬</span> Kirim undangan via WhatsApp
+                    </button>
+                    <p class="invitation-note">WhatsApp akan terbuka dengan pesan undangan yang sudah disiapkan. Tekan Kirim di WhatsApp untuk mengirimnya.</p>
+                </form>
             </div>
         </div>
     </section>
@@ -1607,17 +2103,23 @@
 
         // Daftar gambar background - sesuaikan dengan file foto Anda
         const bgSlideImages = [
-            '1.png',
-            '2.png',
-            '3.png',
+            '../Downloads/p2.jpeg',
+            '../Downloads/WhatsApp%20Image%202026-10-22%20at%2013.54.46.jpeg',
+            '../Downloads/WhatsApp%20Image%202026-08-06%20at%2023.16.52.jpeg',
+            '../Downloads/WhatsApp%20Image%202026-10-22%20at%2013.01.33.jpeg',
+            '../Downloads/perahu.png',
+            '../Downloads/instalasipplst.png',
             // Tambahkan lebih banyak gambar jika diperlukan
         ];
 
         // Fallback images jika gambar utama gagal load
         const bgFallbackImages = [
-            'a.png',
-            'b.png',
-            'c.png'
+            '../Downloads/WhatsApp%20Image%202026-08-06%20at%2023.16.52.jpeg',
+            '../Downloads/p2.jpeg',
+            '../Downloads/WhatsApp%20Image%202026-10-22%20at%2013.54.46.jpeg',
+            '../Downloads/WhatsApp%20Image%202026-10-22%20at%2013.01.33.jpeg',
+            '../Downloads/perahu.png',
+            '../Downloads/instalasipplst.png'
         ];
 
         // Initialize background slider
@@ -1898,6 +2400,47 @@
 
         // Contact functionality
         function initContactForm() {
+            const invitationForm = document.getElementById('invitationForm');
+
+            if (invitationForm) {
+                invitationForm.querySelectorAll('input[required]').forEach(field => {
+                    field.addEventListener('input', () => field.setCustomValidity(''));
+                });
+
+                invitationForm.addEventListener('submit', event => {
+                    event.preventDefault();
+
+                    const requiredFields = invitationForm.querySelectorAll('input[required]');
+                    requiredFields.forEach(field => {
+                        field.setCustomValidity(field.value.trim() ? '' : 'Mohon isi kolom ini.');
+                    });
+
+                    if (!invitationForm.reportValidity()) return;
+
+                    const formData = new FormData(invitationForm);
+                    const name = formData.get('name').trim();
+                    const company = formData.get('company').trim();
+                    const role = formData.get('role').trim();
+                    const eventName = formData.get('event').trim();
+                    const message = [
+                        'Halo Muhammad Azharul Mangali, saya ingin menyampaikan undangan.',
+                        '',
+                        `Nama: ${name}`,
+                        `Perusahaan: ${company}`,
+                        `Undangan sebagai: ${role}`,
+                        `Acara/proyek: ${eventName}`
+                    ].join('\n');
+                    const whatsappUrl = `https://wa.me/6285258600345?text=${encodeURIComponent(message)}`;
+                    const whatsappWindow = window.open(whatsappUrl, '_blank');
+
+                    if (whatsappWindow) {
+                        whatsappWindow.opener = null;
+                    } else {
+                        window.location.href = whatsappUrl;
+                    }
+                });
+            }
+
             document.querySelectorAll('.contact-item').forEach(item => {
                 const contactType = item.getAttribute('data-contact');
 
@@ -1916,7 +2459,7 @@
         }
 
         function openGoogleMaps() {
-            const location = "Tanjung Duren Utara, Grogol Petamburan, Jakarta Barat, Indonesia";
+            const location = "HQ29+864, Cikrisik, Cipari, Kec. Cipari, Kabupaten Cilacap, Jawa Tengah 53262";
             const encodedLocation = encodeURIComponent(location);
             const mapsUrl = `https://www.google.com/maps/search/${encodedLocation}`;
             window.open(mapsUrl, '_blank', 'noopener,noreferrer');
@@ -1948,13 +2491,11 @@
             card.addEventListener('mouseenter', function () {
                 this.style.transform = this.classList.contains('skill-card') || this.classList.contains('doc-card')
                     ? 'translateY(-8px)'
-                    : this.classList.contains('timeline-item')
-                        ? 'translateX(5px)'
-                        : 'translateY(-5px)';
+                    : 'translateY(-5px)';
             });
 
             card.addEventListener('mouseleave', function () {
-                this.style.transform = 'translateY(0) translateX(0)';
+                this.style.transform = 'translateY(0)';
             });
         });
 
